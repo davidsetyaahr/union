@@ -1,0 +1,20 @@
+@media (max-width: 575.98px) {
+  .packages.h-270 .package .info-top,
+  .destinations .col-md-6 .destination,
+  .destinations .col-md-3 .destination {
+    height: auto !important;
+  }
+  .parallax .layer .text {
+    width: 90% !important;
+  }
+  .destination .layer p {
+    font-size: 18px !important;
+  }
+  .overlay-video .container .title-big {
+    font-size: 50px;
+  }
+  .quote .text,
+  .quote .icon {
+    width: 100%;
+  }
+}
