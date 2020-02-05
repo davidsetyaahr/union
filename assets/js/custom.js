@@ -21,7 +21,12 @@ nav();
 window.addEventListener("scroll", function() {
 	nav();
 });
-
+$(".scrollDown").click(function(e) {
+	e.preventDefault();
+	const target = $(this).data("target");
+	const off = $(target).offset();
+	$("body,html").animate({ scrollTop: off.top - 81 }, 2000);
+});
 $(".img-destination").owlCarousel({
 	autoplay: true,
 	animateOut: "fadeOut",

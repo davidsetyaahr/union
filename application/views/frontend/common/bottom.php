@@ -60,7 +60,7 @@
             <img src="<?php echo base_url() ?>assets/images/common/UNION.png" alt="" width="30%">
             <div class="link-footer mt-3">
                 <b>Jl. Khairil Anwar No. 102 A kelurahan Badean Bondowoso 
-68214 <a href="https://www.google.com/maps?q=-7.9162144,113.811415&z=17&hl=en" target="_blank" class="link-footer">View on map</a> </b>
+68214 <a href="https://goo.gl/maps/oeBJq1398RhBGzF89" target="_blank" class="link-footer">View on map</a> </b>
             </div>
           </div>
           <div class="col-md-3">
@@ -134,8 +134,11 @@
       </div>
     </div>
     <script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
     <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/owl.carousel.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
+
   </body>
 </html>

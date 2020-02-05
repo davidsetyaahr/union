@@ -1,9 +1,9 @@
-<div class="half-banner" style="background : url('<?php echo base_url() ?>assets/images/banner/bali.jpg')">
+<div class="half-banner" style="background : url('<?php echo base_url()."assets/images/banner/region/".$region['banner'] ?>');background-position : <?php echo $region['banner_position'] ?> !important">
 <div class="layer"></div>
 <div class="container text-banner">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-            <h1 class="font-weight-bold">BALI</h1>
+            <h1 class="font-weight-bold"><?php echo strtoupper($region['region_name']) ?></h1>
             <h5>Indonesia</h5>
             <div class="icons">
                 <span class="flaticon-001-glasses-1"></span>

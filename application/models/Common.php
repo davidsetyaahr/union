@@ -37,7 +37,7 @@ class Common extends CI_Model {
         if($join!="") {
             for($i=0;$i<count($join);$i++){
                 if($i%2!=0){
-                    $sql = $this->db->join($join[$i-1],$join[$i],"right");
+                    $sql = $this->db->join($join[$i-1],$join[$i]);
                 }
             }
         }

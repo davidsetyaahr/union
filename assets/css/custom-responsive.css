@@ -20,4 +20,8 @@
 	.quote .icon {
 		width: 100%;
 	}
+	.info-bottom .container,
+	.info-bottom .container .text-right {
+		text-align: center !important;
+	}
 }

@@ -190,7 +190,7 @@
         </div>
       </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Adventure</a>
+              <a class="nav-link" href="<?php echo base_url()."packages" ?>">All Packages</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Hiking Tour</a>
