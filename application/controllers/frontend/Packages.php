@@ -37,6 +37,9 @@ class Packages extends CI_Controller {
 
 		$data['highlights'] = $this->common->getData("*","trip_highlights","",["id_package" => $data['package']['id_package']],"");
 
+		$data['another_packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url",["packages p",3,0],["durations d", "p.id_duration = d.id_duration"],"",["p.id_package","desc"]);
+
+
 		$data['info'] = array(
 			"include" => $this->common->getData("i.text","package_info pi",["info i","pi.id_info = i.id_info"],["pi.id_package" => $data['package']['id_package'],"i.type" => "in"],""),
 			"exclude" => $this->common->getData("i.text","package_info pi",["info i","pi.id_info = i.id_info"],["pi.id_package" => $data['package']['id_package'],"i.type" => "ex"],""),
