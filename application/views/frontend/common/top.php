@@ -198,12 +198,6 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Beach Tour</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign in</a>
-            </li>
           </ul>
         </div>
       </div>

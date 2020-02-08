@@ -20,31 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="bg-light section pb-3">
-      <div class="container custom mb-5">
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <div class="title mt-5">Why Union Tour Operator?</div>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-9 text-center">
-            <div class="content">
-              We are a company that values and conserves the environment,
-              ensuring our clients receive the excellentest service and
-              attention by prioritizing safety, combined with quality equipment,
-              facilities, exceptional services, medical services, trained staff
-              and reinvesting in the local community, especially through good
-              conditions for our staff.
-            </div>
-            <a href="" class="btn btn-outline-primary mt-4 btn-bold"
-              >READ MORE</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container custom my-4">
+    <div class="container custom my-4 section">
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="title mt-5">Indonesia Trip</div>
