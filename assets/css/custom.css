@@ -252,6 +252,7 @@ html {
 .package img {
 	position: relative;
 	width: 100%;
+	height: 100%;
 	transition: all 1s ease;
 	-webkit-transition: all 1s ease;
 	-o-transition: all 1s ease;
@@ -370,13 +371,14 @@ html {
 	font-weight: bold;
 	margin-bottom: 0px;
 }
-.package .info-bottom .idr {
+.package .info-bottom .region {
 	width: 70%;
 	float: left;
+	margin-top: 5px;
 	letter-spacing: 1px;
 	font-weight: bold;
 	color: #007bff;
-	font-size: 25px;
+	font-size: 20px;
 }
 .package .info-bottom .book {
 	float: right;
@@ -622,6 +624,7 @@ label {
 }
 #accordion .card .card-header .btn-link {
 	width: 100%;
+	white-space: normal;
 	text-align: left;
 	display: block;
 	padding: 0.75rem 1.25rem;

@@ -9,13 +9,6 @@
             <div class="col-md-8 text-center">
             <h1 class="font-weight-bold"><?php echo $package['package_name'] ?></h1>
             <h5 class="mb-3">
-              <?php 
-                  $countStyles = count($styles);
-                  foreach ($styles as $key => $value) {
-                    $glue = $key!=($countStyles-1) ? " - " : "";
-                    echo $value['style_name'].$glue;
-                  }
-              ?>
             </h5>
             <a href="" class="btn-bold btn-circle btn btn-primary scrollDown" data-target="#overview">View Detail <span class="fa fa-caret-down"></span> </a>
             </div>
@@ -46,9 +39,15 @@
                         </div>
                         <div class="col-md-3 ml-auto text-right col-6">
                         <p class="color-yellow bold mb-1">
-                        <span class="fa fa-money fa-lg mb-2"></span>
+                        <span class="fa fa-globe fa-lg mb-2"></span>
                         <br>
-                            2.000.000 / pax
+                        <?php 
+                          $countStyles = count($styles);
+                          foreach ($styles as $key => $value) {
+                            $glue = $key!=($countStyles-1) ? " - " : "";
+                            echo strtoupper($value['style_name'].$glue);
+                          }
+                        ?>
                         </p>
                         <p class="color-white bold">
                             <?php echo count($destinations) ?> Destinations
@@ -112,7 +111,7 @@
           </div>
             <div class="row justify-content-center">
               <div class="col-md-5">
-                <img src="<?php echo base_url()."assets/images/packages/".$images[1] ?>" class="img-fluid" alt="">
+                <img src="<?php echo base_url()."assets/images/packages/".$images[1] ?>" class="img-fluid mb-4" alt="">
               </div>
               <div class="col-md-5">
                   <?php 
@@ -127,7 +126,7 @@
             </div>
         </div>
     </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1010290.7975268234!2d114.51105816599815!3d-8.455697404655568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd22f7520fca7d3%3A0x2872b62cc456cd84!2sBali!5e0!3m2!1sen!2sid!4v1580270617996!5m2!1sen!2sid" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4052252.794084249!2d107.66293731926729!3d-7.322625059638852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7aa07ed2323237%3A0x86fe1c59d6abed60!2sJava!5e0!3m2!1sen!2sid!4v1581138288049!5m2!1sen!2sid" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
     <div class="container custom my-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -145,9 +144,11 @@
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse<?php echo $key ?>" aria-expanded="false" aria-controls="collapseThree">
                       <i class="fa" aria-hidden="true"></i>
+                      <span>
                       <?php 
                         echo "DAY ".$value['day']." - ".$value['caption'];
-                      ?>
+                        ?>
+                        </span>
                     </button>
                   </h5>
                 </div>

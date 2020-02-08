@@ -51,6 +51,8 @@
         <?php 
           foreach ($packages as $data) {
             $images = explode(",", $data['images']);
+            $getRegion = $this->common->getData("r.region_name","package_region pr",["region r","pr.id_region = r.id_region"],["pr.id_package" => $data['id_package']],"");
+            $countRegion = count($getRegion);
         ?>
         <div class="col-md-4 cc">
           <div class="package">
@@ -73,9 +75,14 @@
               <div class="layer"></div>
             </div>
             <div class="info-bottom">
-              <p>start from (/pax) :</p>
-              <div class="idr">
-                2.000.000
+              <p>Region or Destination  : </p>
+              <div class="region">
+              <?php 
+                foreach ($getRegion as $key => $value) {
+                  $glue = $key!=($countRegion-1) ? " - " : "";
+                  echo $value['region_name'].$glue;
+                }
+              ?>
               </div>
               <div class="book">
                 <a href="<?php echo base_url()."packages/".$data['url'] ?>" class="btn btn-primary">View Detail</a>

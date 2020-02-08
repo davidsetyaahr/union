@@ -11,9 +11,8 @@ class Packages extends CI_Controller {
 			'title' => 'Union Tour Operator - Be a Traveler Not a Tourist'
 		);
 
-		$data['packages'] = $this->common->getData("p.package_name,d.day,d.night,p.images,p.url","packages p",["durations d", "p.id_duration = d.id_duration"],"","");
-		
-		
+		$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["durations d", "p.id_duration = d.id_duration"],"",["p.id_package","desc"]);
+
 		$this->load->view('frontend/common/top', $html);
 		$this->load->view('frontend/packages/list-packages', $data);
 		$this->load->view('frontend/common/bottom');

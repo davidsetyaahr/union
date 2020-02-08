@@ -47,7 +47,7 @@
     <div class="container custom my-4">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <div class="title mt-5">Destinations</div>
+          <div class="title mt-5">Indonesia Trip</div>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -63,90 +63,24 @@
         </div>
       </div>
       <div class="row justify-content-center my-5 destinations bottom">
-        <div class="col-md-6 col-6 mb-3 cc">
+        <?php 
+          foreach ($region as $key => $value) {
+        ?>
+        <div class="col-md-6 mb-3 cc">
           <div class="destination">
             <img
-              src="assets/images/destinations/1.jpg"
+              src="assets/images/banner/region/<?php echo $value['banner'] ?>"
               class="img-dest"
               alt=""
             />
             <div class="layer">
               </div>
                 <div class="text">
-                  Destination
+                <?php echo $value['region_name'] ?>
                 </div>
           </div>
         </div>
-        <div class="col-md-6 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="assets/images/destinations/2.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-              </div>
-                <div class="text">
-                  Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="assets/images/destinations/3.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-              </div>
-                <div class="text">
-                  Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="assets/images/destinations/4.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-              </div>
-                <div class="text">
-                  Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="assets/images/destinations/5.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-              </div>
-                <div class="text">
-                  Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="assets/images/destinations/1.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-              </div>
-                <div class="text">
-                  Destination
-                </div>
-          </div>
-        </div>
+       <?php } ?>
       </div>
     </div>
     <div class="parallax">
@@ -180,91 +114,54 @@
         </div>
       </div>
       <div class="row my-5 packages h-270">
+      <?php 
+          foreach ($packages as $data) {
+            $images = explode(",", $data['images']);
+            $getRegion = $this->common->getData("r.region_name","package_region pr",["region r","pr.id_region = r.id_region"],["pr.id_package" => $data['id_package']],"");
+            $countRegion = count($getRegion);
+        ?>
         <div class="col-md-4 cc">
           <div class="package">
             <div class="info-top">
-              <img src="assets/images/destinations/2.jpg" alt="" />
+              <img src="<?php echo base_url()."assets/images/packages/".$images[0] ?>" alt="" />
               <div class="top">
                 <div class="info">
-                  Hiking Tour
+                  <?php 
+                    echo $data['day']." Days ".$data['night']." Nights"
+                  ?>
                 </div>
               </div>
               <div class="bottom">
                 <div class="name">
-                  3d 2n Bromo Ijen
+                  <?php 
+                    echo $data['package_name']
+                  ?>
                 </div>
               </div>
               <div class="layer"></div>
             </div>
             <div class="info-bottom">
-              <p>start from (/pax) :</p>
-              <div class="idr">
-                2.000.000
+            <p>Region or Destination  : </p>
+              <div class="region">
+              <?php 
+                foreach ($getRegion as $key => $value) {
+                  $glue = $key!=($countRegion-1) ? " - " : "";
+                  echo $value['region_name'].$glue;
+                }
+              ?>
               </div>
               <div class="book">
-                <a href="" class="btn btn-primary">Book now</a>
+                <a href="<?php echo base_url()."packages/".$data['url'] ?>" class="btn btn-primary">View Detail</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4 cc">
-          <div class="package">
-            <div class="info-top">
-              <img src="assets/images/destinations/1.jpg" alt="" />
-              <div class="top">
-                <div class="info">
-                  Hiking Tour
-                </div>
-              </div>
-              <div class="bottom">
-                <div class="name">
-                  3d 2n Bromo Ijen
-                </div>
-              </div>
-              <div class="layer"></div>
-            </div>
-            <div class="info-bottom">
-              <p>start from (/pax) :</p>
-              <div class="idr">
-                2.000.000
-              </div>
-              <div class="book">
-                <a href="" class="btn btn-primary">Book now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 cc">
-          <div class="package">
-            <div class="info-top">
-              <img src="assets/images/destinations/4.jpg" alt="" />
-              <div class="top">
-                <div class="info">
-                  Hiking Tour
-                </div>
-              </div>
-              <div class="bottom">
-                <div class="name">
-                  3d 2n Bromo Ijen
-                </div>
-              </div>
-              <div class="layer"></div>
-            </div>
-            <div class="info-bottom">
-              <p>start from (/pax) :</p>
-              <div class="idr">
-                2.000.000
-              </div>
-              <div class="book">
-                <a href="" class="btn btn-primary">Book now</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <?php } ?>
+
       </div>
       <div class="row justify-content-center">
         <div class="col text-center">
-          <a href="" class="btn btn-outline-primary btn-bold">MORE PACKAGE</a>
+          <a href="packages" class="btn btn-outline-primary btn-bold">MORE PACKAGE</a>
         </div>
       </div>
     </div>

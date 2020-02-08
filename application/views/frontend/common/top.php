@@ -56,7 +56,7 @@
               <a class="nav-link" href="#">About</a>
             </li>
       <!-- Megamenu-->
-      <li class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">destinations</a>
+<!--       <li class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">destinations</a>
         <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
           <div class="container">
             <div class="row bg-white rounded-0 m-0 shadow-sm box-mega">
@@ -189,7 +189,7 @@
           </div>
         </div>
       </li>
-            <li class="nav-item">
+ -->            <li class="nav-item">
               <a class="nav-link" href="<?php echo base_url()."packages" ?>">All Packages</a>
             </li>
             <li class="nav-item">
