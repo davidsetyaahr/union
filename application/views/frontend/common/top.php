@@ -22,11 +22,16 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/adventure/font/flaticon.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/animated.css" />
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/js/select2-develop/dist/css/select2.min.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom-responsive.css" />
     <title><?php echo $title; ?></title>
   </head>
   <body>
+  <div class="loading fadeIn animated">
+      <img src="<?php echo base_url()."assets/images/common/UNION.png" ?>" alt="">
+  </div>
     <nav class="navbar navbar-expand-lg py-3 main-nav fixed-top">
       <div class="container custom">
         <a class="navbar-brand" href="#">
@@ -193,10 +198,16 @@
               <a class="nav-link" href="<?php echo base_url()."packages" ?>">All Packages</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Hiking Tour</a>
+              <a class="nav-link" href="#">Active Travel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Beach Tour</a>
+              <a class="nav-link" href="#">Classic Journey</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Trekking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-warning color-white" href="#"><span class="fa fa-send"></span> Enquire</a>
             </li>
           </ul>
         </div>

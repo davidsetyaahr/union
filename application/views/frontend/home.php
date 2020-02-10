@@ -8,22 +8,51 @@
     <div class="overlay-video">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 text-center">
-            <div class="title-big">
-              Welcome to Union Tour Operator
+          <div class="col-md-12">
+            <div class="title-big text-center">
+              Union Tour Operator
             </div>
-            <p>When they go low we go high!. Be a Traveler Not a Tourist</p>
-            <a href="" class="btn btn-primary px-5">
+            <p class="text-center">When they go low we go high!. Be a Traveler Not a Tourist</p>
+            <div class="row justify-content-center">
+              <div class="col-md-7">
+              <div class="tour-finder px-4 py-3">
+                <p class="color-blue bold mb-3"><span class="fa fa-search"></span> Tour finder</p>
+                <div class="row">
+                  <div class="col-md-6 cc">
+                    <select name="" id="" class="custom-select">
+                      <option value="" data-icon="fa fa-globe" readonly>Destinations
+                      </option>
+                      <option value="">Region 1</option>
+                      <option value="">Region 2</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 cc">
+                    <select name="" id="" class="custom-select">
+                      <option value="" data-icon="fa fa-briefcase" readonly>Tour Style
+                      </option>
+                      <option value="">Style 1</option>
+                      <option value="">Style 2</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2 cc">
+                    <button style="height:100%" class="btn btn-block btn-primary py-2"><span class="fa fa-search"></span></button>
+                  </div>
+              </div>
+                </div>
+              </div>
+            </div>
+<!--             <a href="" class="btn btn-primary px-5">
               <span class="fa fa-search"></span> Find a trip</a
             >
-          </div>
+ -->          </div>
         </div>
       </div>
     </div>
+    <div class="bg-light">
     <div class="container custom my-4 section">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <div class="title mt-5">Indonesia Trip</div>
+          <div class="title mt-5">Get inspiration for your next trip</div>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -39,25 +68,63 @@
         </div>
       </div>
       <div class="row justify-content-center my-5 destinations bottom">
+        <div class="col-md-12 owl-carousel img-region">
         <?php 
           foreach ($region as $key => $value) {
         ?>
-        <div class="col-md-6 mb-3 cc">
-          <div class="destination">
+        <div class="item">
+          <div class="region">
             <img
               src="assets/images/banner/region/<?php echo $value['banner'] ?>"
-              class="img-dest"
+              class="img-fluid"
               alt=""
             />
             <div class="layer">
               </div>
                 <div class="text">
                 <?php echo $value['region_name'] ?>
+                <span class="float-right fa fa-arrow-circle-right"></span>
                 </div>
           </div>
         </div>
        <?php } ?>
       </div>
+      </div>
+    </div>
+    </div>
+    <div class="container custom my-5">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="title left">Tour Packages</div>
+        </div>
+        <div class="col-md-8">
+        <ul class="nav nav-tabs mt-2 float-right filter-style" data-url="<?php echo base_url()."frontend/packages/bystyle"; ?>">
+            <?php 
+              foreach ($styles as $key => $value) {
+                $active = $value['id_style']==1 ? "active" : "";
+            ?>
+              <li class="nav-item">
+                <a class="nav-link choose-style ls-7 <?php echo $active ?>" data-toggle="tab" href="#include" id="<?php echo $value['id_style'] ?>">
+                <span class="<?php echo $value['icon'] ?>"></span>
+                <?php echo $value['style_name'] ?></a>
+              </li>
+          <?php } ?>
+         </ul>
+        </div>
+      </div>
+      <div class="row my-2 packages h-220">
+            <?php 
+              $loop = array(
+                "package" => $activeStyle,
+              );
+              $this->load->view("frontend/packages/loop-package", $loop);
+            ?>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <a href="packages" class="btn btn-outline-primary btn-bold mt-3">MORE PACKAGE</a>
+          </div>
+        </div>
     </div>
     <div class="parallax">
       <div class="layer">
@@ -70,74 +137,6 @@
             Indonesia in a fun and budget-friendly way.
           </p>
           <a href="" class="btn btn-primary btn-bold">READ MORE</a>
-        </div>
-      </div>
-    </div>
-    <div class="container custom my-5">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="title">Tour Packages</div>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-9 text-center">
-          <div class="content">
-            For the trips we have designed all through field operator research,
-            we try to fulfill all the wishes of clients from all walks of life
-            and we convey experiences like local people with international
-            service.
-          </div>
-        </div>
-      </div>
-      <div class="row my-5 packages h-270">
-      <?php 
-          foreach ($packages as $data) {
-            $images = explode(",", $data['images']);
-            $getRegion = $this->common->getData("r.region_name","package_region pr",["region r","pr.id_region = r.id_region"],["pr.id_package" => $data['id_package']],"");
-            $countRegion = count($getRegion);
-        ?>
-        <div class="col-md-4 cc">
-          <div class="package">
-            <div class="info-top">
-              <img src="<?php echo base_url()."assets/images/packages/".$images[0] ?>" alt="" />
-              <div class="top">
-                <div class="info">
-                  <?php 
-                    echo $data['day']." Days ".$data['night']." Nights"
-                  ?>
-                </div>
-              </div>
-              <div class="bottom">
-                <div class="name">
-                  <?php 
-                    echo $data['package_name']
-                  ?>
-                </div>
-              </div>
-              <div class="layer"></div>
-            </div>
-            <div class="info-bottom">
-            <p>Region or Destination  : </p>
-              <div class="region">
-              <?php 
-                foreach ($getRegion as $key => $value) {
-                  $glue = $key!=($countRegion-1) ? " - " : "";
-                  echo $value['region_name'].$glue;
-                }
-              ?>
-              </div>
-              <div class="book">
-                <a href="<?php echo base_url()."packages/".$data['url'] ?>" class="btn btn-primary">View Detail</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      <?php } ?>
-
-      </div>
-      <div class="row justify-content-center">
-        <div class="col text-center">
-          <a href="packages" class="btn btn-outline-primary btn-bold">MORE PACKAGE</a>
         </div>
       </div>
     </div>

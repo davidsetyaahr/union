@@ -49,4 +49,13 @@ class Packages extends CI_Controller {
 		$this->load->view('frontend/packages/detail-package', $data);
 		$this->load->view('frontend/common/bottom');
 	}
+	
+	public function bystyle()
+	{
+		$data['package'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url",["packages p",4,0],["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration"],["ps.id_style" => $_POST['id_style']],["p.id_package","desc"]);
+		
+		$data['styles'] = $this->common->getData("*","tour_styles","","","");
+		
+		$this->load->view('frontend/packages/loop-package', $data);
+	}
 }

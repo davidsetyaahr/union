@@ -24,4 +24,20 @@
 	.info-bottom .container .text-right {
 		text-align: center !important;
 	}
+	.packages.h-220 .package .info-top {
+		height: 120px !important;
+	}
+	.package .info-bottom .bottom .right,
+	.package .info-bottom .bottom .right a {
+		width: 100% !important;
+	}
+	.package .info-bottom .name {
+		font-size: 14px !important;
+	}
+	.package .info-bottom {
+		min-height: 162.2px;
+	}
+	.nav-tabs .nav-link {
+		font-size: 14px;
+	}
 }

@@ -243,7 +243,7 @@
 <div class="container custom my-5 pt-5">
       <div class="row justify-content-center ">
         <div class="col-md-6">
-          <div class="title">Tour Packages</div>
+          <div class="title">Another Packages</div>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -256,51 +256,13 @@
           </div>
         </div>
       </div>
-      <div class="row my-5 packages h-270">
+      <div class="row my-5 packages h-270 justify-content-center">
       <?php 
-          foreach ($another_packages as $data) {
-            $images = explode(",", $data['images']);
-            $getRegion = $this->common->getData("r.region_name","package_region pr",["region r","pr.id_region = r.id_region"],["pr.id_package" => $data['id_package']],"");
-            $countRegion = count($getRegion);
-        ?>
-        <div class="col-md-4 cc">
-          <div class="package">
-            <div class="info-top">
-              <img src="<?php echo base_url()."assets/images/packages/".$images[0] ?>" alt="" />
-              <div class="top">
-                <div class="info">
-                  <?php 
-                    echo $data['day']." Days ".$data['night']." Nights"
-                  ?>
-                </div>
-              </div>
-              <div class="bottom">
-                <div class="name">
-                  <?php 
-                    echo $data['package_name']
-                  ?>
-                </div>
-              </div>
-              <div class="layer"></div>
-            </div>
-            <div class="info-bottom">
-            <p>Region or Destination  : </p>
-              <div class="region">
-              <?php 
-                foreach ($getRegion as $key => $value) {
-                  $glue = $key!=($countRegion-1) ? " - " : "";
-                  echo $value['region_name'].$glue;
-                }
-              ?>
-              </div>
-              <div class="book">
-                <a href="<?php echo base_url()."packages/".$data['url'] ?>" class="btn btn-primary">View Detail</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      <?php } ?>
-
+              $loop = array(
+                "package" => $another_packages,
+              );
+              $this->load->view("frontend/packages/loop-package", $loop);
+            ?>
       </div>
       <div class="row justify-content-center">
         <div class="col text-center">

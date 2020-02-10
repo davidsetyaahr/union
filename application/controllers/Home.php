@@ -11,9 +11,12 @@ class Home extends CI_Controller {
 			'title' => 'Union Tour Operator - Be a Traveler Not a Tourist'
 		);
 
-		$data['region'] = $this->common->getData("*","region","","","");
+		$data['region'] = $this->common->getData("*",["region",4,0],"","","");
 
-		$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url",["packages p",3,0],["durations d", "p.id_duration = d.id_duration"],"",["p.id_package","desc"]);
+		$data['activeStyle'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url",["packages p",4,0],["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration"],["ps.id_style" => "1"],["p.id_package","desc"]);
+
+		$data['styles'] = $this->common->getData("*","tour_styles","","","");
+
 
 		$this->load->view('frontend/common/top', $html);
 		$this->load->view('frontend/home', $data);

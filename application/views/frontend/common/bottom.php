@@ -28,30 +28,6 @@
         </div>
       </div>
     </div>
-    <div class="bg-blue">
-      <div class="container custom mt-3">
-        <div class="row justify-content-center">
-          <div class="col-md-10 my-4">
-            <div class="quote">
-              <div class="icon">
-                <span class="fa fa-quote-left"></span>
-              </div>
-              <div class="text">
-                <p>
-                  IF YOU’RE TWENTY-TWO, PHYSICALLY FIT, HUNGRY TO LEARN AND BE
-                  BETTER, I URGE YOU TO TRAVEL – AS FAR AND AS WIDELY AS
-                  POSSIBLE. SLEEP ON FLOORS IF YOU HAVE TO. FIND OUT HOW OTHER
-                  PEOPLE LIVE AND EAT AND COOK. LEARN FROM THEM — WHEREVER YOU
-                  GO.
-                </p>
-                <div class="from">ANTHONY BOURDAIN</div>
-              </div>
-            </div>
-            <span class="fa fa-paragraf"></span>
-          </div>
-        </div>
-      </div>
-    </div>
 
 <div class="bg-footer">
       <div class="container custom">
@@ -64,7 +40,7 @@
             </div>
           </div>
           <div class="col-md-3">
-            <div class="blue-title">
+            <div class="blue-title color-white">
               About union
             </div>
             <div class="link-footer">
@@ -72,7 +48,7 @@
             </div>
           </div>
           <div class="col-md-3">
-            <div class="blue-title">
+            <div class="blue-title color-white">
               Site Link
             </div>
             <div class="row">
@@ -108,10 +84,10 @@
             </div>
           </div>
           <div class="col-md-3">
-            <div class="blue-title">
+            <div class="blue-title color-white">
               Connect with us
             </div>
-            <label for="">Subscribe our newsletter</label>
+            <label for="" class="color-white">Subscribe our newsletter</label>
             <form action="">
               <input
                 type="text"
@@ -138,6 +114,7 @@
 
     <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/select2-develop/dist/js/select2.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
 
   </body>
