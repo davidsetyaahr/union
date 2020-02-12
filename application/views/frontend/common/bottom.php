@@ -2,7 +2,7 @@
       <div class="container custom mb-5">
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <div class="title mt-5">Connect with us</div>
+            <div class="title mt-5">CONNECT WITH US</div>
           </div>
         </div>
         <div class="row justify-content-center">

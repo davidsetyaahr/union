@@ -12,7 +12,7 @@
             <div class="title-big text-center">
               UNION TOUR OPERATOR
             </div>
-            <p class="text-center">When they go low we go high!. Be a Traveler Not a Tourist</p>
+            <p class="text-center">Be a Traveler Not a Tourist!</p>
             <div class="row justify-content-center">
               <div class="col-md-7">
               <div class="tour-finder px-4 py-3">
@@ -60,7 +60,7 @@
     <div class="container custom my-4 section">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <div class="title mt-5">Get inspiration for your next trip</div>
+          <div class="title mt-5">EXPLORE MORE ADVENTURE</div>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -139,14 +139,14 @@
     <div class="parallax">
       <div class="layer">
         <div class="text">
-          <h1>JOIN TO OUR GROUP TRIP</h1>
+          <h1>JOIN OUR SATISFYING JOURNEY</h1>
           <p>
             For clients who want to join the fun, we offer regularly scheduled
             departures. Taking advantage of the benefits of group travel
             expenses, Joining in a Trip is a great way to get to know you
             Indonesia in a fun and budget-friendly way.
           </p>
-          <a href="" class="btn btn-primary btn-bold">READ MORE</a>
+          <a href="" class="btn btn-primary btn-bold">DISCOVER MORE</a>
         </div>
       </div>
     </div>
