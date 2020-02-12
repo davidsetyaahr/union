@@ -11,8 +11,26 @@ class Packages extends CI_Controller {
 			'title' => 'Union Tour Operator - Be a Traveler Not a Tourist'
 		);
 
-		$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["durations d", "p.id_duration = d.id_duration"],"",["p.id_package","desc"]);
+		if(!empty($_GET['id_region'])){
+			$id_region = $_GET['id_region'];
 
+			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["durations d", "p.id_duration = d.id_duration","package_region pr","p.id_package = pr.id_package"],["pr.id_region" => $id_region],["p.id_package","desc"]);
+		}elseif(!empty($_GET['id_style'])){
+			$id_style = $_GET['id_style'];
+
+			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration"],["ps.id_style" => $id_style],["p.id_package","desc"]);
+		}elseif(!empty($_GET['id_region']) && !empty($_GET['id_style'])){
+			$id_region = $_GET['id_region'];
+			$id_style = $_GET['id_style'];
+
+			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration","package_region pr","p.id_package = pr.id_package"],["ps.id_style" => $id_style,"pr.id_region" => $id_region],["p.id_package","desc"]);
+		}else{
+			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["durations d", "p.id_duration = d.id_duration"],"",["p.id_package","desc"]);
+		}
+		$data['styles'] = $this->common->getData("*","tour_styles","","","");
+
+		$data['region'] = $this->common->getData("*","region","","","");
+		
 		$this->load->view('frontend/common/top', $html);
 		$this->load->view('frontend/packages/list-packages', $data);
 		$this->load->view('frontend/common/bottom');
@@ -58,4 +76,5 @@ class Packages extends CI_Controller {
 		
 		$this->load->view('frontend/packages/loop-package', $data);
 	}
+
 }

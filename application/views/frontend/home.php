@@ -10,34 +10,42 @@
         <div class="row">
           <div class="col-md-12">
             <div class="title-big text-center">
-              Union Tour Operator
+              UNION TOUR OPERATOR
             </div>
             <p class="text-center">When they go low we go high!. Be a Traveler Not a Tourist</p>
             <div class="row justify-content-center">
               <div class="col-md-7">
               <div class="tour-finder px-4 py-3">
                 <p class="color-blue bold mb-3"><span class="fa fa-search"></span> Tour finder</p>
+                <form action="<?php echo base_url()."packages"; ?>" method="GET">
                 <div class="row">
                   <div class="col-md-6 cc">
-                    <select name="" id="" class="custom-select">
-                      <option value="" data-icon="fa fa-globe" readonly>Destinations
-                      </option>
-                      <option value="">Region 1</option>
-                      <option value="">Region 2</option>
-                    </select>
-                  </div>
-                  <div class="col-md-4 cc">
-                    <select name="" id="" class="custom-select">
-                      <option value="" data-icon="fa fa-briefcase" readonly>Tour Style
-                      </option>
-                      <option value="">Style 1</option>
-                      <option value="">Style 2</option>
-                    </select>
-                  </div>
-                  <div class="col-md-2 cc">
-                    <button style="height:100%" class="btn btn-block btn-primary py-2"><span class="fa fa-search"></span></button>
-                  </div>
+                      <select name="id_region" id="" class="custom-select">
+                        <option value="" data-icon="fa fa-globe" readonly>Destinations</option>
+                        <?php 
+                          foreach ($region as $key => $value) {
+                        ?>
+                        <option value="<?php echo $value['id_region'] ?>"><?php echo $value['region_name'] ?></option>
+                          <?php } ?>
+                      </select>
+                    </div>
+                    <div class="col-md-4 cc">
+                      <select name="id_style" id="" class="custom-select">
+                        <option value="" data-icon="fa fa-briefcase" readonly>Tour Style</option>
+                        <?php 
+                          foreach ($styles as $key => $value) {
+                        ?>
+                        <option value="<?php echo $value['id_style'] ?>"><?php echo $value['style_name'] ?></option>
+                          <?php } ?>
+                      </select>
+                    </div>
+                    <div class="col-md-2 cc">
+                      <button type="submit" style="height:100%" class="btn btn-block btn-primary py-2">
+                      <span class="fa fa-search"></span>
+                      </button>
+                    </div>
               </div>
+              </form>
                 </div>
               </div>
             </div>
@@ -73,6 +81,7 @@
           foreach ($region as $key => $value) {
         ?>
         <div class="item">
+          <a href="<?php echo base_url()."packages?id_region=".$value['id_region'];?>">
           <div class="region">
             <img
               src="assets/images/banner/region/<?php echo $value['banner'] ?>"
@@ -86,6 +95,7 @@
                 <span class="float-right fa fa-arrow-circle-right"></span>
                 </div>
           </div>
+        </a>
         </div>
        <?php } ?>
       </div>
@@ -129,7 +139,7 @@
     <div class="parallax">
       <div class="layer">
         <div class="text">
-          <h1>Join to our Group Trip</h1>
+          <h1>JOIN TO OUR GROUP TRIP</h1>
           <p>
             For clients who want to join the fun, we offer regularly scheduled
             departures. Taking advantage of the benefits of group travel

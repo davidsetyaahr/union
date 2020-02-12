@@ -198,13 +198,13 @@
               <a class="nav-link" href="<?php echo base_url()."packages" ?>">All Packages</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Active Travel</a>
+              <a class="nav-link" href="<?php echo base_url()."packages?id_style=1"; ?>">Active Travel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Classic Journey</a>
+              <a class="nav-link" href="<?php echo base_url()."packages?id_style=2"; ?>">Classic Journey</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Trekking</a>
+              <a class="nav-link" href="<?php echo base_url()."packages?id_style=3"; ?>">Trekking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link btn btn-warning color-white" href="#"><span class="fa fa-send"></span> Enquire</a>

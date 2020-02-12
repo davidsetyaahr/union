@@ -17,6 +17,7 @@ class Home extends CI_Controller {
 
 		$data['styles'] = $this->common->getData("*","tour_styles","","","");
 
+		$data['region'] = $this->common->getData("*","region","","","");
 
 		$this->load->view('frontend/common/top', $html);
 		$this->load->view('frontend/home', $data);

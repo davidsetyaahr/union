@@ -7,23 +7,35 @@
             <h5 class="text-center">Indonesia</h5>
             <div class="tour-finder px-4 py-3 mt-3">
                 <p class="color-blue bold mb-3"><span class="fa fa-search"></span> Tour finder</p>
+                <form action="<?php echo base_url()."packages"; ?>" method="GET">
                 <div class="row">
                   <div class="col-md-6 cc">
-                    <select name="" id="" class="custom-select">
-                      <option value="" data-icon="fa fa-globe" readonly>Destinations
-                      </option>
-                    </select>
-                  </div>
-                  <div class="col-md-4 cc">
-                    <select name="" id="" class="custom-select">
-                      <option value="" data-icon="fa fa-briefcase" readonly>Tour Style
-                      </option>
-                    </select>
-                  </div>
-                  <div class="col-md-2 cc">
-                    <button style="height:100%" class="btn btn-block btn-primary py-2"><span class="fa fa-search"></span></button>
-                  </div>
+                      <select name="id_region" id="" class="custom-select">
+                        <option value="" data-icon="fa fa-globe" readonly>Destinations</option>
+                        <?php 
+                          foreach ($region as $key => $value) {
+                        ?>
+                        <option value="<?php echo $value['id_region'] ?>"><?php echo $value['region_name'] ?></option>
+                          <?php } ?>
+                      </select>
+                    </div>
+                    <div class="col-md-4 cc">
+                      <select name="id_style" id="" class="custom-select">
+                        <option value="" data-icon="fa fa-briefcase" readonly>Tour Style</option>
+                        <?php 
+                          foreach ($styles as $key => $value) {
+                        ?>
+                        <option value="<?php echo $value['id_style'] ?>"><?php echo $value['style_name'] ?></option>
+                          <?php } ?>
+                      </select>
+                    </div>
+                    <div class="col-md-2 cc">
+                      <button type="submit" style="height:100%" class="btn btn-block btn-primary py-2">
+                      <span class="fa fa-search"></span>
+                      </button>
+                    </div>
               </div>
+              </form>
                 </div>
             
         </div>
