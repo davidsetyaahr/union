@@ -234,7 +234,7 @@
             and we convey experiences like local people with international
             service.
             <br>
-            <a href="" class="btn btn-success btn-bold mt-4"><span class="fa fa-whatsapp"></span> Book this package</a>
+            <a href="" class="btn btn-warning btn-bold mt-4" id="setEnquire" data-id="<?php echo $package['id_package'] ?>" data-toggle="modal" data-target="#myModal"><span class="fa fa-send"></span> Enquire Now</a>
 
             </div>
         </div>

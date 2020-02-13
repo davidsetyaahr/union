@@ -207,9 +207,103 @@
               <a class="nav-link" href="<?php echo base_url()."packages?id_style=3"; ?>">Trekking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-warning color-white" href="#"><span class="fa fa-send"></span> Enquire</a>
+              <a class="nav-link btn btn-warning color-white" data-toggle="modal" data-target="#myModal" href="#"><span class="fa fa-send"></span> Enquire</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+    <div class="modal" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">New Travel Enquiry</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="" method="post">
+        <div class="row">
+          <div class="col-lg-4">
+            <label for="">Email</label>
+            <input type="email" name="email" class="form-control">
+          </div>
+          <div class="col-lg-4">
+            <label for="">Your Name</label>
+            <input type="text" name="fullname" class="form-control">
+          </div>
+          <div class="col-lg-4">
+            <label for="">Country</label>
+            <input type="text" name="country" class="form-control">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-lg-4">
+            <label for="">Estimated Travel Date</label>
+            <input type="text" name="date" class="form-control datepicker">
+          </div>
+          <div class="col-lg-2">
+            <label for="">Adults</label>
+            <input type="number" name="adults" class="form-control">
+          </div>
+          <div class="col-lg-2">
+            <label for="">Children</label>
+            <input type="number" name="children" class="form-control">
+          </div>
+          <div class="col-lg-4">
+            <label for="">Your Contact Number</label>
+            <input type="text" name="contact" class="form-control">
+          </div>
+          <div class="col-lg-12 my-3 normal">
+            <label for="">Tour Package</label>
+            <select name="packages" id="selectPackage" class="custom-select select2">
+                <option value="" data-url="" readonly>---Select Package---</option>
+              <?php 
+                  $enquirePackages = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.url","packages p",["durations d", "p.id_duration = d.id_duration"],"",["d.day","asc"]);
+
+                  foreach ($enquirePackages as $key => $value) {
+                    echo "<option data-url='".base_url()."packages/$value[url]' value='".$value['id_package']."'>$value[day]D $value[night]N - $value[package_name]</option>";
+                  }
+                  
+              ?>
+            </select>
+            <br>
+            <br>
+            <a href="" id="viewPackage" target="_blank">View package</a>
+          </div>
+          <div class="col-lg-3">
+            <label for="">Tshirt S</label>
+            <input type="number" class="form-control" name="s">
+          </div>
+          <div class="col-lg-3">
+            <label for="">Tshirt M</label>
+            <input type="number" class="form-control" name="m">
+          </div>
+          <div class="col-lg-3">
+            <label for="">Tshirt L</label>
+            <input type="number" class="form-control" name="l">
+          </div>
+          <div class="col-lg-3">
+            <label for="">Tshirt XL</label>
+            <input type="number" class="form-control" name="xl">
+          </div>
+          <div class="col-lg-12 my-3">
+            <label for="">Itinerary plans or ideas</label>
+            <textarea name="plans" id="" class="form-control" rows="3	"></textarea>
+            <br>
+            <div class="g-recaptcha" data-sitekey="6LdBatgUAAAAAJE2rGJHEyliVSnXyDyFHLQBNx2f"></div>            
+          </div>
+          <div class="col-lg-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-default" type="reset">Reset</button>
+          </div>
+        </div>
+      </form>
+          </div>
+    </div>
+  </div>
+</div>    
+

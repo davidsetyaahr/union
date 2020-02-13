@@ -111,4 +111,16 @@ $(document).ready(function() {
 		templateResult: iformat,
 		allowHtml: true
 	});
+	$("#selectPackage").change(function() {
+		var url = $(this)
+			.find("option:selected")
+			.data("url");
+		$("#viewPackage").attr("href", url);
+	});
+	$("#setEnquire").click(function() {
+		var id = $(this).data("id");
+		$("#selectPackage")
+			.val(id)
+			.trigger("change");
+	});
 });

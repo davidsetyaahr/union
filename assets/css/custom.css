@@ -111,6 +111,30 @@ html {
 #select2--container > span > i {
 	color: #124782;
 }
+
+.normal .select2-container .select2-selection--single {
+	height: 38px !important;
+	border: 1px solid #ced4da;
+}
+.normal
+	.select2-container--default
+	.select2-selection--single
+	.select2-selection__rendered {
+	line-height: 33px;
+}
+.normal
+	.select2-container--default
+	.select2-selection--single
+	.select2-selection__arrow {
+	top: -5px;
+	right: 8px;
+}
+
+.modal-header {
+	color: white;
+	background: #134780;
+	font-weight: bold;
+}
 .loading {
 	position: fixed;
 	top: 0;
@@ -677,11 +701,13 @@ label {
 .btn-warning {
 	background: #f64e27;
 	border-color: #e7360a;
+	color: white;
 }
 .btn-warning:focus {
 	box-shadow: 0 0 0 0.2rem rgba(231, 54, 10, 0.5);
 }
 .btn-warning:hover {
+	color: white;
 	border-color: #e7360a;
 	background: #e7360a;
 }
