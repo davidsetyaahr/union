@@ -33,7 +33,7 @@
       <div class="container custom">
         <div class="row my-5">
           <div class="col-md-3">
-            <img src="<?php echo base_url() ?>assets/images/common/UNION.png" alt="" width="30%">
+            <img src="<?php echo base_url() ?>assets/images/common/UNION.png" alt="" width="40%">
             <div class="link-footer mt-3">
                 <b>Jl. Khairil Anwar No. 102 A kelurahan Badean Bondowoso 
 68214 <a href="https://goo.gl/maps/oeBJq1398RhBGzF89" target="_blank" class="link-footer">View on map</a> </b>
