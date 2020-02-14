@@ -61,6 +61,7 @@ $route['dashboard'] = 'backend/backend/dashboard';
 $route['pdf'] = 'backend/pdf';
 $route['pdf/(:any)'] = 'backend/pdf/$1';
 $route['pdf/delete/(:any)'] = 'backend/pdf/delete/$1';
+$route['success'] = 'welcome/success';
 $route['logout'] = 'backend/backend/logout';
 /*--------*/
 
