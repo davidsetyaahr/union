@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2020 at 12:27 AM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.3.6
+-- Waktu pembuatan: 14 Feb 2020 pada 09.40
+-- Versi server: 10.1.40-MariaDB
+-- Versi PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_destination`
+-- Struktur dari tabel `category_destination`
 --
 
 CREATE TABLE `category_destination` (
@@ -35,7 +35,7 @@ CREATE TABLE `category_destination` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `category_destination`
+-- Dumping data untuk tabel `category_destination`
 --
 
 INSERT INTO `category_destination` (`id_category`, `category_name`, `icon`) VALUES
@@ -51,7 +51,7 @@ INSERT INTO `category_destination` (`id_category`, `category_name`, `icon`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `destinations`
+-- Struktur dari tabel `destinations`
 --
 
 CREATE TABLE `destinations` (
@@ -64,7 +64,7 @@ CREATE TABLE `destinations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `destinations`
+-- Dumping data untuk tabel `destinations`
 --
 
 INSERT INTO `destinations` (`id_destination`, `destination_name`, `id_category`, `overview`, `images`, `map`) VALUES
@@ -101,7 +101,7 @@ INSERT INTO `destinations` (`id_destination`, `destination_name`, `id_category`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `durations`
+-- Struktur dari tabel `durations`
 --
 
 CREATE TABLE `durations` (
@@ -111,7 +111,7 @@ CREATE TABLE `durations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `durations`
+-- Dumping data untuk tabel `durations`
 --
 
 INSERT INTO `durations` (`id_duration`, `day`, `night`) VALUES
@@ -131,7 +131,7 @@ INSERT INTO `durations` (`id_duration`, `day`, `night`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `info`
+-- Struktur dari tabel `info`
 --
 
 CREATE TABLE `info` (
@@ -141,7 +141,7 @@ CREATE TABLE `info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `info`
+-- Dumping data untuk tabel `info`
 --
 
 INSERT INTO `info` (`id_info`, `text`, `type`) VALUES
@@ -164,7 +164,7 @@ INSERT INTO `info` (`id_info`, `text`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `itinerary`
+-- Struktur dari tabel `itinerary`
 --
 
 CREATE TABLE `itinerary` (
@@ -176,7 +176,7 @@ CREATE TABLE `itinerary` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `itinerary`
+-- Dumping data untuk tabel `itinerary`
 --
 
 INSERT INTO `itinerary` (`id_itinerary`, `id_package`, `day`, `caption`, `detail`) VALUES
@@ -267,7 +267,7 @@ INSERT INTO `itinerary` (`id_itinerary`, `id_package`, `day`, `caption`, `detail
 -- --------------------------------------------------------
 
 --
--- Table structure for table `packages`
+-- Struktur dari tabel `packages`
 --
 
 CREATE TABLE `packages` (
@@ -281,7 +281,7 @@ CREATE TABLE `packages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `packages`
+-- Dumping data untuk tabel `packages`
 --
 
 INSERT INTO `packages` (`id_package`, `package_name`, `id_duration`, `overview`, `images`, `informations`, `url`) VALUES
@@ -299,7 +299,7 @@ INSERT INTO `packages` (`id_package`, `package_name`, `id_duration`, `overview`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `package_destinations`
+-- Struktur dari tabel `package_destinations`
 --
 
 CREATE TABLE `package_destinations` (
@@ -309,7 +309,7 @@ CREATE TABLE `package_destinations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `package_destinations`
+-- Dumping data untuk tabel `package_destinations`
 --
 
 INSERT INTO `package_destinations` (`id_package_destination`, `id_package`, `id_destination`) VALUES
@@ -375,7 +375,7 @@ INSERT INTO `package_destinations` (`id_package_destination`, `id_package`, `id_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `package_info`
+-- Struktur dari tabel `package_info`
 --
 
 CREATE TABLE `package_info` (
@@ -385,7 +385,7 @@ CREATE TABLE `package_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `package_info`
+-- Dumping data untuk tabel `package_info`
 --
 
 INSERT INTO `package_info` (`id_package_info`, `id_package`, `id_info`) VALUES
@@ -540,7 +540,7 @@ INSERT INTO `package_info` (`id_package_info`, `id_package`, `id_info`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `package_region`
+-- Struktur dari tabel `package_region`
 --
 
 CREATE TABLE `package_region` (
@@ -550,7 +550,7 @@ CREATE TABLE `package_region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `package_region`
+-- Dumping data untuk tabel `package_region`
 --
 
 INSERT INTO `package_region` (`id_package_region`, `id_package`, `id_region`) VALUES
@@ -571,7 +571,7 @@ INSERT INTO `package_region` (`id_package_region`, `id_package`, `id_region`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `package_styles`
+-- Struktur dari tabel `package_styles`
 --
 
 CREATE TABLE `package_styles` (
@@ -581,7 +581,7 @@ CREATE TABLE `package_styles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `package_styles`
+-- Dumping data untuk tabel `package_styles`
 --
 
 INSERT INTO `package_styles` (`id_package_style`, `id_package`, `id_style`) VALUES
@@ -605,7 +605,26 @@ INSERT INTO `package_styles` (`id_package_style`, `id_package`, `id_style`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `region`
+-- Struktur dari tabel `pdf`
+--
+
+CREATE TABLE `pdf` (
+  `id_pdf` int(3) NOT NULL,
+  `package` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pdf`
+--
+
+INSERT INTO `pdf` (`id_pdf`, `package`, `url`) VALUES
+(14, 'TRAVEL  SERVICES INVOICE SARAH', 'https://drive.google.com/file/d/1baWNm0krDunSfVwNG4vQ-0NeHGdaCmrP/preview');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `region`
 --
 
 CREATE TABLE `region` (
@@ -619,7 +638,7 @@ CREATE TABLE `region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `region`
+-- Dumping data untuk tabel `region`
 --
 
 INSERT INTO `region` (`id_region`, `region_name`, `banner`, `banner_position`, `overview`, `map`, `url`) VALUES
@@ -639,7 +658,7 @@ INSERT INTO `region` (`id_region`, `region_name`, `banner`, `banner_position`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tour_styles`
+-- Struktur dari tabel `tour_styles`
 --
 
 CREATE TABLE `tour_styles` (
@@ -649,7 +668,7 @@ CREATE TABLE `tour_styles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tour_styles`
+-- Dumping data untuk tabel `tour_styles`
 --
 
 INSERT INTO `tour_styles` (`id_style`, `style_name`, `icon`) VALUES
@@ -663,7 +682,7 @@ INSERT INTO `tour_styles` (`id_style`, `style_name`, `icon`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trip_highlights`
+-- Struktur dari tabel `trip_highlights`
 --
 
 CREATE TABLE `trip_highlights` (
@@ -674,7 +693,7 @@ CREATE TABLE `trip_highlights` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `trip_highlights`
+-- Dumping data untuk tabel `trip_highlights`
 --
 
 INSERT INTO `trip_highlights` (`id_highlight`, `id_package`, `caption`, `detail`) VALUES
@@ -709,194 +728,243 @@ INSERT INTO `trip_highlights` (`id_highlight`, `id_package`, `caption`, `detail`
 (29, 10, 'Sultan’s Palace', 'View the Javanese relics on display at the Sultan’s Palace, the same place of residence of the current Sultan.'),
 (30, 10, 'Two volcanoes', 'Hike towards the crater of two volcanoes and experience the out-of-this-world atmosphere on top.');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(5) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `levelUser` enum('1','2') NOT NULL,
+  `createdAt` date NOT NULL,
+  `lastLogin` date NOT NULL,
+  `statusAktif` enum('0','1') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`user_id`, `email`, `password`, `fullname`, `levelUser`, `createdAt`, `lastLogin`, `statusAktif`) VALUES
+(1, 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '1', '2019-05-31', '2020-02-14', '1'),
+(2, 'eugenecw.ng@gmail.com', 'a151b60f3197544d0bce5ad7cbbd0432', 'Eugene', '2', '2019-07-30', '2019-07-30', '1');
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `category_destination`
+-- Indeks untuk tabel `category_destination`
 --
 ALTER TABLE `category_destination`
   ADD PRIMARY KEY (`id_category`);
 
 --
--- Indexes for table `destinations`
+-- Indeks untuk tabel `destinations`
 --
 ALTER TABLE `destinations`
   ADD PRIMARY KEY (`id_destination`),
   ADD KEY `id_category` (`id_category`);
 
 --
--- Indexes for table `durations`
+-- Indeks untuk tabel `durations`
 --
 ALTER TABLE `durations`
   ADD PRIMARY KEY (`id_duration`);
 
 --
--- Indexes for table `info`
+-- Indeks untuk tabel `info`
 --
 ALTER TABLE `info`
   ADD PRIMARY KEY (`id_info`);
 
 --
--- Indexes for table `itinerary`
+-- Indeks untuk tabel `itinerary`
 --
 ALTER TABLE `itinerary`
   ADD PRIMARY KEY (`id_itinerary`),
   ADD KEY `id_package` (`id_package`);
 
 --
--- Indexes for table `packages`
+-- Indeks untuk tabel `packages`
 --
 ALTER TABLE `packages`
   ADD PRIMARY KEY (`id_package`);
 
 --
--- Indexes for table `package_destinations`
+-- Indeks untuk tabel `package_destinations`
 --
 ALTER TABLE `package_destinations`
   ADD PRIMARY KEY (`id_package_destination`);
 
 --
--- Indexes for table `package_info`
+-- Indeks untuk tabel `package_info`
 --
 ALTER TABLE `package_info`
   ADD PRIMARY KEY (`id_package_info`),
   ADD KEY `id_info` (`id_info`);
 
 --
--- Indexes for table `package_region`
+-- Indeks untuk tabel `package_region`
 --
 ALTER TABLE `package_region`
   ADD PRIMARY KEY (`id_package_region`),
   ADD KEY `id_region` (`id_region`);
 
 --
--- Indexes for table `package_styles`
+-- Indeks untuk tabel `package_styles`
 --
 ALTER TABLE `package_styles`
   ADD PRIMARY KEY (`id_package_style`),
   ADD KEY `id_style` (`id_style`);
 
 --
--- Indexes for table `region`
+-- Indeks untuk tabel `pdf`
+--
+ALTER TABLE `pdf`
+  ADD PRIMARY KEY (`id_pdf`);
+
+--
+-- Indeks untuk tabel `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`id_region`);
 
 --
--- Indexes for table `tour_styles`
+-- Indeks untuk tabel `tour_styles`
 --
 ALTER TABLE `tour_styles`
   ADD PRIMARY KEY (`id_style`);
 
 --
--- Indexes for table `trip_highlights`
+-- Indeks untuk tabel `trip_highlights`
 --
 ALTER TABLE `trip_highlights`
   ADD PRIMARY KEY (`id_highlight`),
   ADD KEY `id_package` (`id_package`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `category_destination`
+-- AUTO_INCREMENT untuk tabel `category_destination`
 --
 ALTER TABLE `category_destination`
   MODIFY `id_category` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `destinations`
+-- AUTO_INCREMENT untuk tabel `destinations`
 --
 ALTER TABLE `destinations`
   MODIFY `id_destination` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `durations`
+-- AUTO_INCREMENT untuk tabel `durations`
 --
 ALTER TABLE `durations`
   MODIFY `id_duration` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `info`
+-- AUTO_INCREMENT untuk tabel `info`
 --
 ALTER TABLE `info`
   MODIFY `id_info` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `itinerary`
+-- AUTO_INCREMENT untuk tabel `itinerary`
 --
 ALTER TABLE `itinerary`
   MODIFY `id_itinerary` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
--- AUTO_INCREMENT for table `packages`
+-- AUTO_INCREMENT untuk tabel `packages`
 --
 ALTER TABLE `packages`
   MODIFY `id_package` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `package_destinations`
+-- AUTO_INCREMENT untuk tabel `package_destinations`
 --
 ALTER TABLE `package_destinations`
   MODIFY `id_package_destination` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
--- AUTO_INCREMENT for table `package_info`
+-- AUTO_INCREMENT untuk tabel `package_info`
 --
 ALTER TABLE `package_info`
   MODIFY `id_package_info` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
--- AUTO_INCREMENT for table `package_region`
+-- AUTO_INCREMENT untuk tabel `package_region`
 --
 ALTER TABLE `package_region`
   MODIFY `id_package_region` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `package_styles`
+-- AUTO_INCREMENT untuk tabel `package_styles`
 --
 ALTER TABLE `package_styles`
   MODIFY `id_package_style` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `region`
+-- AUTO_INCREMENT untuk tabel `pdf`
+--
+ALTER TABLE `pdf`
+  MODIFY `id_pdf` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+
+--
+-- AUTO_INCREMENT untuk tabel `region`
 --
 ALTER TABLE `region`
   MODIFY `id_region` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `tour_styles`
+-- AUTO_INCREMENT untuk tabel `tour_styles`
 --
 ALTER TABLE `tour_styles`
   MODIFY `id_style` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `trip_highlights`
+-- AUTO_INCREMENT untuk tabel `trip_highlights`
 --
 ALTER TABLE `trip_highlights`
   MODIFY `id_highlight` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT untuk tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `destinations`
+-- Ketidakleluasaan untuk tabel `destinations`
 --
 ALTER TABLE `destinations`
   ADD CONSTRAINT `destinations_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category_destination` (`id_category`);
 
 --
--- Constraints for table `itinerary`
+-- Ketidakleluasaan untuk tabel `itinerary`
 --
 ALTER TABLE `itinerary`
   ADD CONSTRAINT `itinerary_ibfk_1` FOREIGN KEY (`id_package`) REFERENCES `packages` (`id_package`);
 
 --
--- Constraints for table `trip_highlights`
+-- Ketidakleluasaan untuk tabel `trip_highlights`
 --
 ALTER TABLE `trip_highlights`
   ADD CONSTRAINT `trip_highlights_ibfk_1` FOREIGN KEY (`id_package`) REFERENCES `packages` (`id_package`);

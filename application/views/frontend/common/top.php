@@ -225,7 +225,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form action="" method="post">
+        <form action="<?php echo base_url()."backend/mail/travelenquiry"?>" method="post">
         <div class="row">
           <div class="col-lg-4">
             <label for="">Email</label>
@@ -243,7 +243,7 @@
         <div class="row mt-3">
           <div class="col-lg-4">
             <label for="">Estimated Travel Date</label>
-            <input type="text" name="date" class="form-control datepicker">
+            <input type="date" name="date" class="form-control datepicker">
           </div>
           <div class="col-lg-2">
             <label for="">Adults</label>
@@ -294,7 +294,8 @@
             <label for="">Itinerary plans or ideas</label>
             <textarea name="plans" id="" class="form-control" rows="3	"></textarea>
             <br>
-            <div class="g-recaptcha" data-sitekey="6LdBatgUAAAAAJE2rGJHEyliVSnXyDyFHLQBNx2f"></div>            
+            <div class="g-recaptcha" data-sitekey="6Ld5yNgUAAAAAMMS26tlufJVt3flTKiXkjCBjpD7"></div> 
+            <!-- secret key = 6Ld5yNgUAAAAALsghHr1uFA52UTWk_ugWa8cKvIq            -->
           </div>
           <div class="col-lg-12">
             <button class="btn btn-primary" type="submit">Submit</button>
