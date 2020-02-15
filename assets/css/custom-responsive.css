@@ -28,7 +28,8 @@
 		height: 120px !important;
 	}
 	.package .info-bottom .bottom .right,
-	.package .info-bottom .bottom .right a {
+	.package .info-bottom .bottom .right a,
+	.package .info-bottom .region {
 		width: 100% !important;
 	}
 	.package .info-bottom .name {
@@ -39,5 +40,35 @@
 	}
 	.nav-tabs .nav-link {
 		font-size: 14px;
+	}
+	.half-banner.list-package {
+		height: 100% !important;
+	}
+	.half-banner,
+	.full-banner,
+	.parallax {
+		background-position: inherit !important;
+		background-attachment: scroll !important;
+	}
+	.tab-style {
+		display: none;
+	}
+	.select-style {
+		display: block;
+	}
+	.filter-style {
+		float: none !important;
+	}
+	.navbar-collapse {
+		margin-top: 15px;
+	}
+	.navbar-collapse ul li {
+		padding: 6px !important;
+	}
+	.navbar-collapse ul li a {
+		font-size: 14px !important;
+	}
+	.to-left {
+		text-align: left !important;
 	}
 }

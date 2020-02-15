@@ -19,7 +19,7 @@
                 <div class="alert alert-primary">
                     <b>Booking Success</b>
                     <br>
-                    After the process is complete, we will contact you again
+                    Check you inbox or spam folder. After the process is complete, we will contact you again
                 </div>
                 <a href="<?php echo base_url() ?>" class="btn btn-primary">Home</a>
             </div>

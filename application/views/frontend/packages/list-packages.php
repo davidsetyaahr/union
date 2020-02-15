@@ -1,4 +1,4 @@
-<div class="half-banner" style="background : url('<?php echo base_url()."assets/images/banner/banner.jpg" ?>');background-position:bottom !important">
+<div class="half-banner list-package" style="background : url('<?php echo base_url()."assets/images/banner/package.jpg" ?>');background-position:center">
 <div class="layer"></div>
 <div class="container text-banner">
     <div class="row justify-content-center">
@@ -11,21 +11,29 @@
                 <div class="row">
                   <div class="col-md-6 cc">
                       <select name="id_region" id="" class="custom-select">
-                        <option value="" data-icon="fa fa-globe" readonly>Destinations</option>
+                        <option value="" data-icon="fa fa-map-marker" readonly>Destinations</option>
                         <?php 
                           foreach ($region as $key => $value) {
+                            $selected = "";
+                            if(isset($_GET['id_region'])){
+                              $selected = $_GET['id_region']==$value['id_region'] ?  "selected" : "";
+                            }
                         ?>
-                        <option value="<?php echo $value['id_region'] ?>"><?php echo $value['region_name'] ?></option>
+                        <option value="<?php echo $value['id_region'] ?>" <?php echo $selected ?>><?php echo $value['region_name'] ?></option>
                           <?php } ?>
                       </select>
                     </div>
                     <div class="col-md-4 cc">
                       <select name="id_style" id="" class="custom-select">
-                        <option value="" data-icon="fa fa-briefcase" readonly>Tour Style</option>
+                        <option value="" data-icon="fa fa-globe" readonly>Tour Style</option>
                         <?php 
                           foreach ($styles as $key => $value) {
+                            $selected = "";
+                            if(isset($_GET['id_style'])){
+                              $selected = $_GET['id_style']==$value['id_style'] ?  "selected" : "";
+                            }
                         ?>
-                        <option value="<?php echo $value['id_style'] ?>"><?php echo $value['style_name'] ?></option>
+                        <option value="<?php echo $value['id_style'] ?>" <?php echo $selected ?>><?php echo $value['style_name'] ?></option>
                           <?php } ?>
                       </select>
                     </div>
@@ -62,7 +70,33 @@
 </div>
 </div>
 <div class="container custom my-5">
-    <div class="row my-5 packages h-270">
+    <div class="row mb-3">
+        <div class="col-md-6">
+        <h5 class="bold ls-1 color-orange">
+            <?php 
+            if(empty($_GET['id_region']) && empty($_GET['id_style'])){
+              echo "<span class='fa fa-map-marker color-blue'></span> All packages";
+            }
+              if(isset($_GET['id_region'])){
+            ?>
+            <span class="fa fa-map-marker color-blue"></span> <?php echo $selectRegion['region_name'] ?>
+            <?php }
+            if(isset($_GET['id_region']) && isset($_GET['id_style'])){
+              echo "&nbsp;";
+            } 
+              if(isset($_GET['id_style'])){
+            ?>
+                <span class="fa fa-globe color-blue"></span> <?php echo $selectStyle['style_name'] ?>
+            <?php
+              }
+              ?>
+              </h5>
+        </div>
+        <div class="col-md-6 to-left text-right ml-auto">
+              <h5 class="bold ls-1"><?php echo count($packages)." Packages" ?></h5>
+        </div>
+    </div>
+    <div class="row mb-5 packages h-220">
     <?php 
               $loop = array(
                 "package" => $packages,

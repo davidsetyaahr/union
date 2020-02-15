@@ -8,7 +8,7 @@
             <div class="package">
             <div class="info-top">
               <img src="<?php echo base_url()."assets/images/packages/".$images[0] ?>" alt="" />
-              <div class="category">Category</div>
+              <div class="category"><?php echo $data['category'] ?></div>
               <div class="top">
                 <div class="info">
                   <?php 

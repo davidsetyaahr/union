@@ -1,6 +1,6 @@
     <video autoplay muted loop id="myVideo">
       <source
-        src="assets/videos/Medan, samosir - video destination - Wonderful Indonesia HD.mp4"
+        src="assets/videos/Medansamosir-videodestination-WonderfulIndonesiaHD.mp4"
         type="video/mp4"
       />
       Your browser does not support HTML5 video.
@@ -21,7 +21,7 @@
                 <div class="row">
                   <div class="col-md-6 cc">
                       <select name="id_region" id="" class="custom-select">
-                        <option value="" data-icon="fa fa-globe" readonly>Destinations</option>
+                        <option value="" data-icon="fa fa-map-marker" readonly>Destinations</option>
                         <?php 
                           foreach ($region as $key => $value) {
                         ?>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-md-4 cc">
                       <select name="id_style" id="" class="custom-select">
-                        <option value="" data-icon="fa fa-briefcase" readonly>Tour Style</option>
+                        <option value="" data-icon="fa fa-globe" readonly>Tour Style</option>
                         <?php 
                           foreach ($styles as $key => $value) {
                         ?>
@@ -113,12 +113,23 @@
               foreach ($styles as $key => $value) {
                 $active = $value['id_style']==1 ? "active" : "";
             ?>
-              <li class="nav-item">
+              <li class="nav-item tab-style">
                 <a class="nav-link choose-style ls-7 <?php echo $active ?>" data-toggle="tab" href="#include" id="<?php echo $value['id_style'] ?>">
                 <span class="<?php echo $value['icon'] ?>"></span>
                 <?php echo $value['style_name'] ?></a>
               </li>
           <?php } ?>
+          <li class="nav-item select-style">
+                <a href="" class="nav-link smoothborder">
+                  <select name="" id="" class="custom-select">
+                  <?php 
+                    foreach ($styles as $key => $value) {
+                      echo "<option data-icon='$value[icon]' value='$value[id_style]'>$value[style_name]</option>";
+                    }
+                  ?>
+                  </select>
+                </a>
+          </li>
          </ul>
         </div>
       </div>
@@ -146,7 +157,7 @@
             expenses, Joining in a Trip is a great way to get to know you
             Indonesia in a fun and budget-friendly way.
           </p>
-          <a href="" class="btn btn-primary btn-bold">DISCOVER MORE</a>
+          <a href="about" class="btn btn-primary btn-bold">DISCOVER MORE</a>
         </div>
       </div>
     </div>

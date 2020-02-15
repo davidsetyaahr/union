@@ -19,6 +19,7 @@
       rel="stylesheet"
       href="<?php echo base_url() ?>assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
     />
+    <link rel="icon" type="image/png" href="<?php echo base_url()."assets/images/common/UNION.png" ?>">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/adventure/font/flaticon.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.theme.default.min.css" />
@@ -28,13 +29,13 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom-responsive.css" />
     <title><?php echo $title; ?></title>
   </head>
-  <body>
+  <body <?php echo empty($this->uri->segment(2)) ? "class='home'" : "" ?>>
   <div class="loading fadeIn animated">
       <img src="<?php echo base_url()."assets/images/common/UNION.png" ?>" alt="">
   </div>
     <nav class="navbar navbar-expand-lg py-3 main-nav fixed-top">
       <div class="container custom">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<?php echo base_url() ?>">
           <img id="logo1" src="<?php echo base_url() ?>assets/images/common/logo-white.png" alt="">
           <img id="logo2" class="hidden" src="<?php echo base_url() ?>assets/images/common/logo.png" alt="">
         </a>
@@ -52,159 +53,44 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
+            <?php
+              $aboutlink = "";
+              $packageslink = "";
+              $activelink = "";
+              $classiclink = "";
+              $trekkinglink = "";
+              if(empty($this->uri->segment(1))){
+                $homelink = "active";
+              }
+              else{
+                $homelink = ""; 
+                $segment1 = $this->uri->segment(1);
+                $aboutlink = $segment1=="about" ? "active" : "";
+                $packageslink = $segment1=="packages" && empty($_GET['id_style']) || $segment1=="packages" && isset($_GET['id_style']) && isset($_GET['id_region']) ? "active" : "";
+                $activelink = $segment1=="packages" && isset($_GET['id_style']) && $_GET['id_style']==1 && empty($_GET['id_region']) ? "active" : "";
+                $classiclink = $segment1=="packages" && isset($_GET['id_style']) && $_GET['id_style']==2 && empty($_GET['id_region']) ? "active" : "";
+                $trekkinglink = $segment1=="packages" && isset($_GET['id_style']) && $_GET['id_style']==3 && empty($_GET['id_region']) ? "active" : "";
+              }
+            ?>
             <li class="nav-item active">
-              <a class="nav-link" href="<?php echo base_url() ?>"
+              <a class="nav-link <?php echo $homelink ?>" href="<?php echo base_url() ?>"
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-      <!-- Megamenu-->
-<!--       <li class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">destinations</a>
-        <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
-          <div class="container">
-            <div class="row bg-white rounded-0 m-0 shadow-sm box-mega">
-              <div class="col-lg-7 col-xl-8">
-                <div class="p-3">
-                  <div class="row destinations top center">
-                    <div class="col-md-12 cc mb-2 font-weight-bold">
-                      <h5>Choose Region :</h5>
-                    </div>
-                  <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="<?php echo base_url() ?>assets/images/destinations/1.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-                </div>
-                <div class="text">
-                Destinationasasassssss
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="<?php echo base_url() ?>assets/images/destinations/2.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-                </div>
-                <div class="text">
-                Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="<?php echo base_url() ?>assets/images/destinations/3.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-                </div>
-                <div class="text">
-                Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="<?php echo base_url() ?>assets/images/destinations/4.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-                </div>
-                <div class="text">
-                Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="<?php echo base_url() ?>assets/images/destinations/5.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-                </div>
-                <div class="text">
-                Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="<?php echo base_url() ?>assets/images/destinations/1.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-                </div>
-                <div class="text">
-                Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="<?php echo base_url() ?>assets/images/destinations/1.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-                </div>
-                <div class="text">
-                Destination
-                </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3 cc">
-          <div class="destination">
-            <img
-              src="<?php echo base_url() ?>assets/images/destinations/1.jpg"
-              class="img-dest"
-              alt=""
-            />
-            <div class="layer">
-                </div>
-                <div class="text">
-                Destination
-                </div>
-          </div>
-        </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-5 col-xl-4 px-0 d-none d-lg-block bg-mega">
-                <div class="layer"></div>
-                <img src="<?php echo base_url()."assets/images/common/logo-white.png" ?>" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
- -->            <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url()."packages" ?>">All Packages</a>
+              <a class="nav-link <?php echo $aboutlink ?>" href="<?php echo base_url()."about" ?>">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url()."packages?id_style=1"; ?>">Active Travel</a>
+              <a class="nav-link <?php echo $packageslink ?>" href="<?php echo base_url()."packages" ?>">All Packages</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url()."packages?id_style=2"; ?>">Classic Journey</a>
+              <a class="nav-link <?php echo $activelink ?>" href="<?php echo base_url()."packages?id_style=1"; ?>">Active Travel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url()."packages?id_style=3"; ?>">Trekking</a>
+              <a class="nav-link <?php echo $classiclink ?>" href="<?php echo base_url()."packages?id_style=2"; ?>">Classic Journey</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <?php echo $trekkinglink ?>" href="<?php echo base_url()."packages?id_style=3"; ?>">Trekking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link btn btn-warning color-white" data-toggle="modal" data-target="#myModal" href="#"><span class="fa fa-send"></span> Enquire</a>
@@ -270,9 +156,9 @@
                   
               ?>
             </select>
-            <br>
-            <br>
-            <a href="" id="viewPackage" target="_blank">View package</a>
+            <div class="mt-3 hideshow hide">
+              <a href="" id="viewPackage" target="_blank">View package</a>
+            </div>
           </div>
           <div class="col-lg-3">
             <label for="">Tshirt S</label>

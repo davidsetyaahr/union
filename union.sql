@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Feb 2020 pada 09.40
--- Versi server: 10.1.40-MariaDB
--- Versi PHP: 7.3.5
+-- Generation Time: Feb 15, 2020 at 03:38 AM
+-- Server version: 10.3.15-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category_destination`
+-- Table structure for table `category_destination`
 --
 
 CREATE TABLE `category_destination` (
@@ -35,7 +35,7 @@ CREATE TABLE `category_destination` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `category_destination`
+-- Dumping data for table `category_destination`
 --
 
 INSERT INTO `category_destination` (`id_category`, `category_name`, `icon`) VALUES
@@ -51,7 +51,26 @@ INSERT INTO `category_destination` (`id_category`, `category_name`, `icon`) VALU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `destinations`
+-- Table structure for table `category_package`
+--
+
+CREATE TABLE `category_package` (
+  `id_category` int(2) NOT NULL,
+  `category` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category_package`
+--
+
+INSERT INTO `category_package` (`id_category`, `category`) VALUES
+(1, 'Popular Package'),
+(2, 'Adventure');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `destinations`
 --
 
 CREATE TABLE `destinations` (
@@ -64,7 +83,7 @@ CREATE TABLE `destinations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `destinations`
+-- Dumping data for table `destinations`
 --
 
 INSERT INTO `destinations` (`id_destination`, `destination_name`, `id_category`, `overview`, `images`, `map`) VALUES
@@ -101,7 +120,7 @@ INSERT INTO `destinations` (`id_destination`, `destination_name`, `id_category`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `durations`
+-- Table structure for table `durations`
 --
 
 CREATE TABLE `durations` (
@@ -111,7 +130,7 @@ CREATE TABLE `durations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `durations`
+-- Dumping data for table `durations`
 --
 
 INSERT INTO `durations` (`id_duration`, `day`, `night`) VALUES
@@ -131,7 +150,7 @@ INSERT INTO `durations` (`id_duration`, `day`, `night`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `info`
+-- Table structure for table `info`
 --
 
 CREATE TABLE `info` (
@@ -141,7 +160,7 @@ CREATE TABLE `info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `info`
+-- Dumping data for table `info`
 --
 
 INSERT INTO `info` (`id_info`, `text`, `type`) VALUES
@@ -164,7 +183,7 @@ INSERT INTO `info` (`id_info`, `text`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `itinerary`
+-- Table structure for table `itinerary`
 --
 
 CREATE TABLE `itinerary` (
@@ -176,7 +195,7 @@ CREATE TABLE `itinerary` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `itinerary`
+-- Dumping data for table `itinerary`
 --
 
 INSERT INTO `itinerary` (`id_itinerary`, `id_package`, `day`, `caption`, `detail`) VALUES
@@ -267,13 +286,14 @@ INSERT INTO `itinerary` (`id_itinerary`, `id_package`, `day`, `caption`, `detail
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `packages`
+-- Table structure for table `packages`
 --
 
 CREATE TABLE `packages` (
   `id_package` int(3) NOT NULL,
   `package_name` varchar(255) NOT NULL,
   `id_duration` int(2) NOT NULL,
+  `id_category` int(2) NOT NULL,
   `overview` text NOT NULL,
   `images` varchar(255) NOT NULL,
   `informations` text NOT NULL,
@@ -281,25 +301,25 @@ CREATE TABLE `packages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `packages`
+-- Dumping data for table `packages`
 --
 
-INSERT INTO `packages` (`id_package`, `package_name`, `id_duration`, `overview`, `images`, `informations`, `url`) VALUES
-(1, 'Java In Depth', 7, 'From central to east Java, explore the region’s nature, rhythm of life and cultural heritage. Uncover the ancient history of the Majapahit, visit the oldest coffee plantations and trek up the two iconic active volcanoes of Mount Bromo and Ijen for the most breathtaking views of nature. ', '76ghg.jpg,76ght.jpg,98ujh.jpg', '<ul>\r\n    <li>\r\n\r\n        Our rates are nets and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,  meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).\r\n    </li>\r\n    <li>\r\n\r\n        All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice\r\n    </li>\r\n    <li>\r\n        All timings are approximate. As the world’s most populated island, travel times can vary greatly during Eid al Fitr holiday break and other National Public Holidays. Eid al Fitr period in 2020 is 16-May-20 until 31-May-20\r\n    </li>\r\n    <li>\r\n        All language guides other than English subject to availability during high season July-September.\r\n    </li>\r\n    <li>\r\n        Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.\r\n    </li>    \r\n    <li>\r\n        Child rate is available on request\r\n    </li>\r\n</ul>', 'java-in-depth'),
-(2, 'Highlights of Yogyakarta', 3, 'Delve into Java’s rich culture with an insightful tour of Yogyakarta. Wander through the incredible Sultan’s Palace and visit villages where traditions have stood the test of time. Explore Java’s spiritual side at Prambanan temple and stare in awe as the sun illuminates majestic Borobodur. ', 'borobudur-min.jpg,prambanan-min.jpg,prambanan2-min.jpg', '<ul><li>Our rates are net and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly.</li><li>During the important religious festival of Idul Fitri, which falls on 23-May-20 and 24-May-20, intense travel across the country, especially in Java, has to be expected with the consequence of long traffic jams. Overland travel is not advised during the two weeks from 16-May-20 until 31-May-20. Service availability during that time may be limited, tour guides may be travelling home, and restaurants may be closed.</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request.</li></ul>', 'highlights-yogyakarta-tour'),
-(3, 'Best of Yogyakarta', 4, 'Discover the temples, museums and artisan villages that make Yogyakarta so fascinating. See the main sites, including Prambanan and Borobodur temples, then get away from the tourist trail to discover authentic Javanese culture. Bike through rural villages, meet with traditional craftsmen and admire incredible artefacts on this insightful guided tour.', 'jogja-min.jpg,borobudur-min.jpg,tugu-jogja-min.jpg', '<ul><li>Our rates are nets and quoted in American dollars (USD), however some services (like transportation, guie fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2020 is 16-May-20 until 31-May-20</li><li>All language guides other than English subject to availability during high season July – September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'best-of-yogyakarta'),
-(4, 'Highlights of Central Java', 5, 'Embark on a discovery of history, culture and sweeping landscapes in Central Java. Take in memorable sunrises at UNESCO-heritage Borobodur Temple and Mt Sikunir volcano. Sip coffee at a highland plantation and see traditional ways of life in rural villages, showcasing the true charm of Central Java. ', 'dieng-min.jpg,borobudur3-min.jpg,borobudur2-min.jpg', '<ul><li>Our rates are net and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>During the important religious festival of Idul Fitri, which falls on 23-May-20 until 24-May-20, intense travel across the country, especially in Java, has to be expected with the consequence of long traffic jams. Overland travel is not advised during the two weeks from 16-May-20 to 31-May-20. Service availability during that time may be limited, tour guides may be travelling home, and restaurants may be closed.</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'central-java-indonesia-tour'),
-(5, 'Central Java to Bali', 7, 'Explore Central Java through culture and art, visit Borobudur and Prambanan temple and not to miss The Sultan’s Palace. Discover the local daily live in a simple village, and take a scenic train to the east to learn about coffee and spices on the sidelines of a visit to remarkable volcanoes.', 'ijen-min.jpg,bromo-min.jpg,borobudur-min.jpg', '<ul><li>Our rates are nets and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2020 is 16-May-20 until 31-May-20</li><li>During Nyepi Day, an important religious day in Bali, which falls on 07-Mar-19 and 25-Mar-20, visitors are not allowed to leave the premises of hotels from 06:00 until 06:00 on the following day (24-hour). The airport will not operate any flights and all public activities will cease but hotels will remain operate with limited staff</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'overland-from-central-java-to-bali'),
-(6, 'Java Temples and Volcanoes', 8, 'Capture the essence of Java with an insightful journey filled with memorable moments. Don a traditional costume to explore Yogyakarta’s royal monuments, sip coffee at a highland plantation and cycle through authentic villages. Marvel at majestic Borobodur temple and watch the sun rise over spectacular Mount Bromo.', 'merapi-min.jpg,jogja-home-min.jpg,76ghg.jpg', '<ul><li>Our rates are net and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2019 is 27-May-19 until 12-Jun-19.</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'java-temple-plantation-and-volcanoes'),
-(7, 'West Java Volcano', 9, 'From treks to remote traditional Baduy Tribes, summit on active Mount Papandayan Volcano to a challenging river trekking and caving in Buniayu, there are many adrenaline pumping activities that offer an in-depth exploration of wild and captivating West Java.', 'papandayan-min.jpg,buniayu.jpg,kampung-naga.jpg', '<ul>\r\n<li>Personal gear must be provided on your own: good trekking shoes, warm clothing, wind jacket, rain gear, hat/cap, sun’s cream, personal medicine, and personal toiletries.</li>\r\n<li>During the caving activity all the participants wearing the complete safety equipment such as wearpack, boots, helmet, gloves, headlamp, harness, life line component (carabiner &amp; webbing). All will be provided by Exo Adventure.</li>\r\n<li>During the important <strong>religious festival of Idul Fitri</strong>, which falls in 2019 on 03<sup>rd</sup> &amp; 05<sup>th</sup> June intense travel across the country, especially in Java, has to be expected with the consequence of long traffic jams. Overland travel is not advised during the two weeks from 27<sup>th</sup> May to 12<sup>ve </sup>July 2019. Especially the ferry crossing between Java and Bali may be blocked. Service availability during that time may be limited, tour guides may be travelling home, and restaurants may be closed.</li>\r\n<li>During <strong>Nyepi Day</strong>, an important religious day in Bali , which falls in 2019 on March 07<sup>th</sup>&nbsp; , visitors and the public are not allowed to leave the premises of hotels from 6am to 6am the following day; all public activities will cease, hotels remain operational with limited staff; the airport will not operate any flights.</li>\r\n<li>We strongly recommend the purchase of <strong>travel insurance</strong> (covering emergency medical evacuation) prior to travel. Since we are not able to advice on any matters regarding vaccinations or other precautionary medical measures, we recommend the consultation of a travel- or tropical-medicine doctor.</li>\r\n<li>Prices are <strong>valid 30 days from date of offer</strong>. Past this date price and conditions may be readjusted. We reserve the right to adjust prices for exceptional circumstances which are not under our control with a notice period of 30 day prior to travel. Services which are already paid are exempt from this.</li>\r\n<li>Reservations during <strong>peak seasons</strong> (Christmas, New Year, High Season, and National Holidays) may be subject to supplementary charges, obligatory meals or minimum-stays. In certain cases, these may be announced late by supplier and hotels and may only be communicated upon the receipt of your confirmation of a booking.</li>\r\n<li>Please note that all the above services &amp; tours have <strong>yet to be booked</strong>, they are proposed for your information only and we will not make any reservations before we receive your confirmation to do so. Availability is always subject to change until booking confirmation form our side.</li>\r\n<li>If any proposed service(s) is/are <strong>not available at the moment of booking</strong>, we will try to find other possibilities/options or other similar service(s) in order to avoid changes to the program.</li>\r\n<li>Note that <strong>certain experiences</strong>, such as blessings by a priest, the visit of an astrologer, etc. are linked with cultural and social obligations on the side of the providers that may change with very short notice, and thus are always subject to change. Cancellations from the supplier-side with short notice have occurred, and in such cases we would always try to re-schedule the activity or experience.</li>\r\n<li><strong>Room/Bedding-Configuration</strong>: Prices per person based on twin sharing relate either to accommodation in a Twin-, a Double- or a so called “Hollywood”-Double Bed configuration. The third bed for accommodation requested in Triple-rooms is often not a full-size single bed, but an extra-bed / roll-away bed / sofa-bed that can vary in size and standard from the regular bedding in the room.</li>\r\n<li><strong>Accommodation and service standards</strong> in remoter islands in Indonesia, and also in Sumatra, Kalimantan, Sulawesi, Flores, Sumba and other islands can be very basic and cannot be compared to those in Java or Bali. In some areas also the transportation means are of more basic standard.</li>\r\n<li>The <strong>cost of air tickets</strong> is subject to change without prior notice by the airlines. Flight tickets are issues as soon as we receive a booking confirmation. In case of any cancellation of a booking prior the period within which advised cancellation charges apply, we reserve the right to charge cancellation charges for flight tickets according to the airline cancellation policy.</li>\r\n<li><strong>Train tickets</strong> are issued as soon as we receive a booking and passport details of the passengers, and the ticketing is opened on the side of the railway company (usually 3 months prior to travel). For any change in travel dates or any cancellation of the tour – also prior to the period within which advised – cancellation charges do apply. We reserve the right to charge for the cancellation of the train tickets according to the railway company cancellation policy. Usually this is for any change of date and for any cancellation the full train ticket price.</li>\r\n<li>Bringing an additional day-bag: For guests <strong>travelling by train</strong> it is strongly advised to bring a day-bag. Luggage is usually not transported on the train and needs to be collected on the evening prior to departure and arrives late after arrival of the guests. The same applies for <strong>all travelers to Tangkahan and groups (GIT) Samosir in Sumatra</strong>. Due to limited space in the transportation, the main luggage can be stored while guest just take along a day-bag with content for 2 days.</li>\r\n<li><strong>Road conditions</strong> in Indonesia are not always very good and this can cause slow driving times. As a general rule we calculate 30 km = 1 hour driving. This can be even less when traveling in very remote areas and jungles with 4WD jeeps. Also some islands are very populated which during public holidays and long weekends can cause traffic problems that can influence your journey time considerably.</li>\r\n<li>Note that <strong>visits to volcanoes</strong> are always subject to change and may be cancelled due to weather conditions or volcanic activity during time of travel; volcano trekking is not possible during rainy months from November to March, except for Bromo, Ijen and Batur volcanoes, where clearance only depends on the daily weather situation.</li>\r\n<li>During the rainy season, especially during January and February <strong>boat transfers</strong> between Bali and Lombok or Gili Islands may be delayed or cancelled due to wave conditions in the Lombok Strait. We do strongly recommend using flights during that time! Occasionally cancellations also occur during the dry season. At any time it is strongly recommended to add one interim-night between a speedboat transfer and onward travel. Any flights should not be scheduled on the same day after a speedboat transfer.</li>\r\n<li>Any travel itinerary is generally dependent on <strong>weather conditions</strong>, and its feasibility may be constrained due to exceptional environmental or social events or circumstances</li>\r\n<li>Among others, the following <strong>Indonesian airlines</strong> are currently banned by the European Commission from operating in European airspace for safety reasons: Citilink Indonesia, Lion (Mentari) Air, Transnusa Aviation Mandiri, Trigana Air Service, Air Asia Indonesia. Any booking of flights with so called “blacklisted” airlines is done only on request of the clients.</li>\r\n<li><strong>Visa &amp; Passport</strong>: Visitors with certain nationalities are eligible for a 30-day Visa-On-Arrival (VOA) or a Visitor-Pass at certain international entry points in Indonesia. Certain nationalities are eligible for a non-extendable 30-day visa-free stay, if entering <u>and</u> exiting at certain checkpoints, among them Jakarta, Medan, Denpasar, Surabaya (and Batam). This <u>is only possible if both</u> entry <u>and</u> exit are at these ports, why caution is required by visitors on which option to choose! Those nationalities which are not eligible for a VOA need to apply in advance for a visa with the embassy or consulate of the Republic of Indonesia nearest to their place of residence in their country. For further information on visa regulations please refer to the official websites of the Directorate General of Immigration: <a href=\"http://www.imigrasi.go.id/index.php/en/\">http://www.imigrasi.go.id/index.php/en/</a>. Since those websites may not always be up-to-date you may check with us on a case-by-case basis for the requirements of your booking. Note that the passport of persons travelling to Indonesia still needs to be valid for at least 6 month on the day of departure</li>\r\n</ul>', 'west-java-tribes-volcano-cave-adventure'),
-(8, 'Trekking East Java', 10, 'Lace up the hiking boots for an active journey through East Java’s spectacular volcanic landscapes. Travel from Yogyakarta to Bali in search of breath taking vistas, submitting majestic peaks and witnessing a live volcanic eruption along the way. After all this excitement, kick back and relax on tropical Pemuteran Bay.', 'merbabu-min.jpg,ranu-kumbolo-min.jpg,menjangan-min.jpg', '<p><strong>Remark on trekking:</strong></p><ul><li>During Mount Semeru trekking, porter will bring trekking &amp; cooking equipment, logistic; porter does not carry the participant personal gear it is advice to carry a lighter bag for all trekking portion.</li></ul><ul><li>Prepare a light backpack that you can carry during your trekking. Personal gear must be provided on your own: good trekking shoes, warm clothing, wind jacket, rain gear, hat/cap, sun’s cream, gaiter, personal medicine, and personal toiletries.</li><li>All camping material are provide by our local guide team (tent, nap for picnic and camping chairs, toilet tent, sleeping bag, mattress, pillow, toilet paper), should you wish to bring your own camping material please inform your local guide upon briefing.</li></ul><ul><li>Please bring warm clothes during Mount Bromo sunrise excursion as the temperature is low and cold</li></ul><p><strong>Important notes:</strong></p><ul><li>During the important <strong>religious festival of Idul Fitri</strong>, which falls in 2020 on 23<sup>rd</sup> &amp; 24<sup>th</sup> May. intense travel across the country, especially in Java, has to be expected with the consequence of long traffic jams. Overland travel is not advised during the two weeks from 16<sup>th</sup> to 31<sup>st </sup>May 2020. Especially the ferry crossing between Java and Bali may be blocked. Service availability during that time may be limited, tour guides may be travelling home, and restaurants may be closed.</li></ul><ul><li>During <strong>Nyepi Day</strong>, an important religious day in Bali , which falls in 2020 on March 25<sup>th</sup> &nbsp;, visitors and the public are not allowed to leave the premises of hotels from 6am to 6am the following day; all public activities will cease, hotels remain operational with limited staff; the airport will not operate any flights.</li></ul><ul><li>We strongly recommend the purchase of <strong>travel insurance</strong> (covering emergency medical evacuation) prior to travel. Since we are not able to advice on any matters regarding vaccinations or other precautionary medical measures, we recommend the consultation of a travel- or tropical-medicine doctor.</li></ul><ul><li>Prices are <strong>valid 30 days from date of offer</strong>. Past this date price and conditions may be readjusted. We reserve the right to adjust prices for exceptional circumstances which are not under our control with a notice period of 30 day prior to travel. Services which are already paid are exempt from this.</li></ul><ul><li>Our prices are in United States Dollars (USD). Several of the services that we quote, are being paid in local currency – the Indonesian Rupiah (IDR). In case of any significant change oft the official exchange rate of more than 5% to our disadvantage, we reserve the right to adjust prices. This would be done with a minimum notice period of 30 days.</li></ul><ul><li>Our prices are based on a petrol price of 7.400 Indonesian Rupiah (IDR) / liter. Should the petrol price increase more than 10%, we reserve the right to adjust our prices with a minimum notice period of 30 days.</li></ul><ul><li>Reservations during <strong>peak seasons</strong> (Christmas, New Year, High Season, and National Holidays) may be subject to supplementary charges, obligatory meals or minimum-stays. In certain cases, these may be announced late by supplier and hotels and may only be communicated upon the receipt of your confirmation of a booking.</li></ul><ul><li>Please note that all the above services &amp; tours have <strong>yet to be booked</strong>, they are proposed for your information only and we will not make any reservations before we receive your confirmation to do so. Availability is always subject to change until booking confirmation form our side.</li></ul><ul><li>If any proposed service(s) is/are <strong>not available at the moment of booking</strong>, we will try to find other possibilities/options or other similar service(s) in order to avoid changes to the program.</li></ul><ul><li>Note that <strong>certain experiences</strong>, such as blessings by a priest, the visit of an astrologer, etc. are linked with cultural and social obligations on the side of the providers that may change with very short notice, and thus are always subject to change. Cancellations from the supplier-side with short notice have occurred, and in such cases we would always try to re-schedule the activity or experience.</li></ul><ul><li><strong>Room/Bedding-Configuration</strong>: Prices per person based on twin sharing relate either to accommodation in a Twin-, a Double- or a so called “Hollywood”-Double Bed configuration. The third bed for accommodation requested in Triple-rooms is often not a full-size single bed, but an extra-bed / roll-away bed / sofa-bed that can vary in size and standard from the regular bedding in the room.</li></ul><ul><li>Rooms at hotels are available only from <strong>check-in time</strong> at 14:00 pm on arrival day till <strong>check-out time</strong> at 12:00 o’clock noon on departure date. A supplement may need to be added if early check-in or late check-out is desired.</li></ul><ul><li><strong>Accommodation and service standards</strong> in remoter islands in Indonesia, and also in Sumatra, Kalimantan, Sulawesi, Flores, Sumba and other islands can be very basic and cannot be compared to those in Java or Bali. In some areas also the transportation means are of more basic standard.</li></ul><ul><li>The <strong>cost of air tickets</strong> is subject to change without prior notice by the airlines. Flight tickets are issues as soon as we receive a booking confirmation. In case of any cancellation of a booking prior the period within which advised cancellation charges apply, we reserve the right to charge cancellation charges for flight tickets according to the airline cancellation policy.</li></ul><ul><li><strong>Train tickets</strong> are issued as soon as we receive a booking and passport details of the passengers, and the ticketing is opened on the side of the railway company (usually 3 months prior to travel). For any change in travel dates or any cancellation of the tour – also prior to the period within which advised – cancellation charges do apply. We reserve the right to charge for the cancellation of the train tickets according to the railway company cancellation policy. Usually this is for any change of date and for any cancellation the full train ticket price.</li></ul><ul><li>Bringing an additional day-bag: For guests <strong>travelling by train</strong> it is strongly advised to bring a day-bag. Luggage is usually not transported on the train and needs to be collected on the evening prior to departure and arrives late after arrival of the guests. The same applies for <strong>all travelers to Tangkahan and groups (GIT) Samosir in Sumatra</strong>. Due to limited space in the transportation, the main luggage can be stored while guest just take along a day-bag with content for 2 days.</li></ul><ul><li><strong>Road conditions</strong> in Indonesia are not always very good and this can cause slow driving times. As a general rule we calculate 30 km = 1 hour driving. This can be even less when traveling in very remote areas and jungles with 4WD jeeps. Also some islands are very populated which during public holidays and long weekends can cause traffic problems that can influence your journey time considerably.</li></ul><ul><li>Note that <strong>visits to volcanoes</strong> are always subject to change and may be cancelled due to weather conditions or volcanic activity during time of travel; volcano trekking is not possible during rainy months from November to March, except for Bromo, Ijen and Batur volcanoes, where clearance only depends on the daily weather situation.</li></ul><ul><li>We do not encourage activities that do actively involve <strong>wildlife,</strong> such as dolphin tours, etc. For activities where guests come in touch with wildlife, very high standards apply and are carefully monitored in our side. Note that upon wildlife observations, including bird watching, and also Orang Utan trekking trips in North Sumatra or Kalimantan there is never a guarantee to see certain bird or primates. In the months between July and September the probability to see Orang Utans in the wild or at feeding stations, may be slightly lower than during other months of the year.</li></ul><ul><li>During the rainy season, especially during January and February <strong>boat transfers</strong> between Bali and Lombok or Gili Islands may be delayed or cancelled due to wave conditions in the Lombok Strait. We do strongly recommend using flights during that time! Occasionally cancellations also occur during the dry season. At any time it is strongly recommended to add one interim-night between a speedboat transfer and onward travel. Any flights should not be scheduled on the same day after a speedboat transfer.</li></ul><ul><li>Due to visibility, currents, higher waves and fast changing weather conditions, we refrain from booking <strong>dive excursions</strong> in Bali during the rainy season months from December to mid-March. All dive excursions take place at own risk and we reserve the right to let clients sign a waiver.</li></ul><ul><li>Any travel itinerary is generally dependent on <strong>weather conditions</strong>, and its feasibility may be constrained due to exceptional environmental or social events or circumstances</li></ul><ul><li>Among others, the following <strong>Indonesian airlines</strong> are currently banned by the European Commission from operating in European airspace for safety reasons: Citilink Indonesia, Lion (Mentari) Air, Transnusa Aviation Mandiri, Trigana Air Service, Air Asia Indonesia. Any booking of flights with so called “blacklisted” airlines is done only on request of the clients.</li></ul><p><strong>Visa &amp; Passport</strong>: Visitors with certain nationalities are eligible for a 30-day Visa-On-Arrival (VOA) or a Visitor-Pass at certain international entry points in Indonesia. Certain nationalities are eligible for a non-extendable 30-day visa-free stay, if entering <u>and</u> exiting at certain checkpoints, among them Jakarta, Medan, Denpasar, Surabaya (and Batam). This <u>is only possible if both</u> entry <u>and</u> exit are at these ports, why caution is required by visitors on which option to choose! Those nationalities which are not eligible for a VOA need to apply in advance for a visa with the embassy or consulate of the Republic of Indonesia nearest to their place of residence in their country. For further information on visa regulations please refer to the official websites of the Directorate General of Immigration: <a href=\"http://www.imigrasi.go.id/index.php/en/\">http://www.imigrasi.go.id/index.php/en/</a>. Since those websites may not always be up-to-date you may check with us on a case-by-case basis for the requirements of your booking. Note that the passport of persons travelling to Indonesia still needs to be valid for at least 6 month on the day of departure.</p>', 'trekking-east-java-volcano-summit'),
-(9, 'Classic Java Bali', 11, 'Explore the ancient temples of Java and Bali on this road trip and learn about the confluence of Hinduism and Buddhism over the years. See many UNESCO World Heritage sites like the Borobudur Temples and the Jatiluwih rice fields. Take a trek up active volcanoes Mount Bromo and Ijen and be rewarded with breathtaking views.', 'bromo-min.jpg,ijen-min.jpg,ubud.jpg', '<ul><li>Our rates are nett and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2019 is 16-May-20 until 31-May-20</li><li>During Nyepi Day, an important religious day in Bali, which falls on 25-Mar-20 and 14-Mar-21, visitors are not allowed to leave the premises of hotels from 06:00 until 06:00 on the following day (24-hour). The airport will not operate any flights and all public activities will cease but hotels will remain operate with limited staff.</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'classic-java-bali'),
-(10, 'Java Bali Overland In Style', 12, 'Take this 14-day tour to Bali’s well-known beaches, tropical forests and temples. Trek through a mountain village passing by fruits, vegetable and spice produce. Snorkel at a beach club in Menjangan Island, ride a horse, go bird watching or hike  the terraced rice fields on the way to Selogriyo Temple. Enjoy a scenic train ride from Yogyakarta to Malang and cruise past colonial buildings via a local rickshaw. It’s a trip of a lifetime to Bali!', 'menjangan.jpg,borobudur2-min.jpg,ubud.jpg', '<ul><li>Rates are nets and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), EXO reserves the right to correct the quotes to align with the rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10%, EXO would readjust transfer rates with a 30 days prior notice.</li><li>Road conditions in Indonesia are not always very good and this can cause slow driving times. As a general rule, EXO calculates 30 km = 1 hour driving. This can be even less when traveling in very remote areas and jungles with 4x4 jeeps. Also, some islands are very populated which during public holidays and long weekends can cause traffic problems, influencing the journey can time considerably.</li><li>All language guides other than English are subject to availability during high season from July to September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request.</li><li>All timings are approximate. As the world’s most populated island, Java, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2019 is 16-May-20 until 31-May-20</li><li>During Nyepi Day, an important religious day in Bali, which falls on 25-Mar-20, visitors are not allowed to leave the premises of hotels from 06:00 until 06:00 on the following day (24-hour). The airport will not operate any flights and all public activities will cease but hotels will resume operation with limited staff.</li><li>Note that certain experiences, such as blessings by a priest, the visit of an astrologer, etc. are linked with cultural and social obligations on the side of the providers that may change with very short notice, and thus are always subject to change. Cancellations from the supplier-side with short notice have occurred, and in such cases, EXO would always try to re-schedule the activity or experience.</li></ul>', 'java-bali-overland-in-style');
+INSERT INTO `packages` (`id_package`, `package_name`, `id_duration`, `id_category`, `overview`, `images`, `informations`, `url`) VALUES
+(1, 'Java In Depth', 7, 1, 'From central to east Java, explore the region’s nature, rhythm of life and cultural heritage. Uncover the ancient history of the Majapahit, visit the oldest coffee plantations and trek up the two iconic active volcanoes of Mount Bromo and Ijen for the most breathtaking views of nature. ', '76ghg.jpg,76ght.jpg,98ujh.jpg', '<ul>\r\n    <li>\r\n\r\n        Our rates are nets and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,  meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).\r\n    </li>\r\n    <li>\r\n\r\n        All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice\r\n    </li>\r\n    <li>\r\n        All timings are approximate. As the world’s most populated island, travel times can vary greatly during Eid al Fitr holiday break and other National Public Holidays. Eid al Fitr period in 2020 is 16-May-20 until 31-May-20\r\n    </li>\r\n    <li>\r\n        All language guides other than English subject to availability during high season July-September.\r\n    </li>\r\n    <li>\r\n        Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.\r\n    </li>    \r\n    <li>\r\n        Child rate is available on request\r\n    </li>\r\n</ul>', 'java-in-depth'),
+(2, 'Highlights of Yogyakarta', 3, 1, 'Delve into Java’s rich culture with an insightful tour of Yogyakarta. Wander through the incredible Sultan’s Palace and visit villages where traditions have stood the test of time. Explore Java’s spiritual side at Prambanan temple and stare in awe as the sun illuminates majestic Borobodur. ', 'borobudur-min.jpg,prambanan-min.jpg,prambanan2-min.jpg', '<ul><li>Our rates are net and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly.</li><li>During the important religious festival of Idul Fitri, which falls on 23-May-20 and 24-May-20, intense travel across the country, especially in Java, has to be expected with the consequence of long traffic jams. Overland travel is not advised during the two weeks from 16-May-20 until 31-May-20. Service availability during that time may be limited, tour guides may be travelling home, and restaurants may be closed.</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request.</li></ul>', 'highlights-yogyakarta-tour'),
+(3, 'Best of Yogyakarta', 4, 1, 'Discover the temples, museums and artisan villages that make Yogyakarta so fascinating. See the main sites, including Prambanan and Borobodur temples, then get away from the tourist trail to discover authentic Javanese culture. Bike through rural villages, meet with traditional craftsmen and admire incredible artefacts on this insightful guided tour.', 'jogja-min.jpg,borobudur-min.jpg,tugu-jogja-min.jpg', '<ul><li>Our rates are nets and quoted in American dollars (USD), however some services (like transportation, guie fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2020 is 16-May-20 until 31-May-20</li><li>All language guides other than English subject to availability during high season July – September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'best-of-yogyakarta'),
+(4, 'Highlights of Central Java', 5, 1, 'Embark on a discovery of history, culture and sweeping landscapes in Central Java. Take in memorable sunrises at UNESCO-heritage Borobodur Temple and Mt Sikunir volcano. Sip coffee at a highland plantation and see traditional ways of life in rural villages, showcasing the true charm of Central Java. ', 'dieng-min.jpg,borobudur3-min.jpg,borobudur2-min.jpg', '<ul><li>Our rates are net and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>During the important religious festival of Idul Fitri, which falls on 23-May-20 until 24-May-20, intense travel across the country, especially in Java, has to be expected with the consequence of long traffic jams. Overland travel is not advised during the two weeks from 16-May-20 to 31-May-20. Service availability during that time may be limited, tour guides may be travelling home, and restaurants may be closed.</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'central-java-indonesia-tour'),
+(5, 'Central Java to Bali', 7, 2, 'Explore Central Java through culture and art, visit Borobudur and Prambanan temple and not to miss The Sultan’s Palace. Discover the local daily live in a simple village, and take a scenic train to the east to learn about coffee and spices on the sidelines of a visit to remarkable volcanoes.', 'ijen-min.jpg,bromo-min.jpg,borobudur-min.jpg', '<ul><li>Our rates are nets and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2020 is 16-May-20 until 31-May-20</li><li>During Nyepi Day, an important religious day in Bali, which falls on 07-Mar-19 and 25-Mar-20, visitors are not allowed to leave the premises of hotels from 06:00 until 06:00 on the following day (24-hour). The airport will not operate any flights and all public activities will cease but hotels will remain operate with limited staff</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'overland-from-central-java-to-bali'),
+(6, 'Java Temples and Volcanoes', 8, 2, 'Capture the essence of Java with an insightful journey filled with memorable moments. Don a traditional costume to explore Yogyakarta’s royal monuments, sip coffee at a highland plantation and cycle through authentic villages. Marvel at majestic Borobodur temple and watch the sun rise over spectacular Mount Bromo.', 'merapi-min.jpg,jogja-home-min.jpg,76ghg.jpg', '<ul><li>Our rates are net and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2019 is 27-May-19 until 12-Jun-19.</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'java-temple-plantation-and-volcanoes'),
+(7, 'West Java Volcano', 9, 2, 'From treks to remote traditional Baduy Tribes, summit on active Mount Papandayan Volcano to a challenging river trekking and caving in Buniayu, there are many adrenaline pumping activities that offer an in-depth exploration of wild and captivating West Java.', 'papandayan-min.jpg,buniayu.jpg,kampung-naga.jpg', '<ul>\r\n<li>Personal gear must be provided on your own: good trekking shoes, warm clothing, wind jacket, rain gear, hat/cap, sun’s cream, personal medicine, and personal toiletries.</li>\r\n<li>During the caving activity all the participants wearing the complete safety equipment such as wearpack, boots, helmet, gloves, headlamp, harness, life line component (carabiner &amp; webbing). All will be provided by Exo Adventure.</li>\r\n<li>During the important <strong>religious festival of Idul Fitri</strong>, which falls in 2019 on 03<sup>rd</sup> &amp; 05<sup>th</sup> June intense travel across the country, especially in Java, has to be expected with the consequence of long traffic jams. Overland travel is not advised during the two weeks from 27<sup>th</sup> May to 12<sup>ve </sup>July 2019. Especially the ferry crossing between Java and Bali may be blocked. Service availability during that time may be limited, tour guides may be travelling home, and restaurants may be closed.</li>\r\n<li>During <strong>Nyepi Day</strong>, an important religious day in Bali , which falls in 2019 on March 07<sup>th</sup>&nbsp; , visitors and the public are not allowed to leave the premises of hotels from 6am to 6am the following day; all public activities will cease, hotels remain operational with limited staff; the airport will not operate any flights.</li>\r\n<li>We strongly recommend the purchase of <strong>travel insurance</strong> (covering emergency medical evacuation) prior to travel. Since we are not able to advice on any matters regarding vaccinations or other precautionary medical measures, we recommend the consultation of a travel- or tropical-medicine doctor.</li>\r\n<li>Prices are <strong>valid 30 days from date of offer</strong>. Past this date price and conditions may be readjusted. We reserve the right to adjust prices for exceptional circumstances which are not under our control with a notice period of 30 day prior to travel. Services which are already paid are exempt from this.</li>\r\n<li>Reservations during <strong>peak seasons</strong> (Christmas, New Year, High Season, and National Holidays) may be subject to supplementary charges, obligatory meals or minimum-stays. In certain cases, these may be announced late by supplier and hotels and may only be communicated upon the receipt of your confirmation of a booking.</li>\r\n<li>Please note that all the above services &amp; tours have <strong>yet to be booked</strong>, they are proposed for your information only and we will not make any reservations before we receive your confirmation to do so. Availability is always subject to change until booking confirmation form our side.</li>\r\n<li>If any proposed service(s) is/are <strong>not available at the moment of booking</strong>, we will try to find other possibilities/options or other similar service(s) in order to avoid changes to the program.</li>\r\n<li>Note that <strong>certain experiences</strong>, such as blessings by a priest, the visit of an astrologer, etc. are linked with cultural and social obligations on the side of the providers that may change with very short notice, and thus are always subject to change. Cancellations from the supplier-side with short notice have occurred, and in such cases we would always try to re-schedule the activity or experience.</li>\r\n<li><strong>Room/Bedding-Configuration</strong>: Prices per person based on twin sharing relate either to accommodation in a Twin-, a Double- or a so called “Hollywood”-Double Bed configuration. The third bed for accommodation requested in Triple-rooms is often not a full-size single bed, but an extra-bed / roll-away bed / sofa-bed that can vary in size and standard from the regular bedding in the room.</li>\r\n<li><strong>Accommodation and service standards</strong> in remoter islands in Indonesia, and also in Sumatra, Kalimantan, Sulawesi, Flores, Sumba and other islands can be very basic and cannot be compared to those in Java or Bali. In some areas also the transportation means are of more basic standard.</li>\r\n<li>The <strong>cost of air tickets</strong> is subject to change without prior notice by the airlines. Flight tickets are issues as soon as we receive a booking confirmation. In case of any cancellation of a booking prior the period within which advised cancellation charges apply, we reserve the right to charge cancellation charges for flight tickets according to the airline cancellation policy.</li>\r\n<li><strong>Train tickets</strong> are issued as soon as we receive a booking and passport details of the passengers, and the ticketing is opened on the side of the railway company (usually 3 months prior to travel). For any change in travel dates or any cancellation of the tour – also prior to the period within which advised – cancellation charges do apply. We reserve the right to charge for the cancellation of the train tickets according to the railway company cancellation policy. Usually this is for any change of date and for any cancellation the full train ticket price.</li>\r\n<li>Bringing an additional day-bag: For guests <strong>travelling by train</strong> it is strongly advised to bring a day-bag. Luggage is usually not transported on the train and needs to be collected on the evening prior to departure and arrives late after arrival of the guests. The same applies for <strong>all travelers to Tangkahan and groups (GIT) Samosir in Sumatra</strong>. Due to limited space in the transportation, the main luggage can be stored while guest just take along a day-bag with content for 2 days.</li>\r\n<li><strong>Road conditions</strong> in Indonesia are not always very good and this can cause slow driving times. As a general rule we calculate 30 km = 1 hour driving. This can be even less when traveling in very remote areas and jungles with 4WD jeeps. Also some islands are very populated which during public holidays and long weekends can cause traffic problems that can influence your journey time considerably.</li>\r\n<li>Note that <strong>visits to volcanoes</strong> are always subject to change and may be cancelled due to weather conditions or volcanic activity during time of travel; volcano trekking is not possible during rainy months from November to March, except for Bromo, Ijen and Batur volcanoes, where clearance only depends on the daily weather situation.</li>\r\n<li>During the rainy season, especially during January and February <strong>boat transfers</strong> between Bali and Lombok or Gili Islands may be delayed or cancelled due to wave conditions in the Lombok Strait. We do strongly recommend using flights during that time! Occasionally cancellations also occur during the dry season. At any time it is strongly recommended to add one interim-night between a speedboat transfer and onward travel. Any flights should not be scheduled on the same day after a speedboat transfer.</li>\r\n<li>Any travel itinerary is generally dependent on <strong>weather conditions</strong>, and its feasibility may be constrained due to exceptional environmental or social events or circumstances</li>\r\n<li>Among others, the following <strong>Indonesian airlines</strong> are currently banned by the European Commission from operating in European airspace for safety reasons: Citilink Indonesia, Lion (Mentari) Air, Transnusa Aviation Mandiri, Trigana Air Service, Air Asia Indonesia. Any booking of flights with so called “blacklisted” airlines is done only on request of the clients.</li>\r\n<li><strong>Visa &amp; Passport</strong>: Visitors with certain nationalities are eligible for a 30-day Visa-On-Arrival (VOA) or a Visitor-Pass at certain international entry points in Indonesia. Certain nationalities are eligible for a non-extendable 30-day visa-free stay, if entering <u>and</u> exiting at certain checkpoints, among them Jakarta, Medan, Denpasar, Surabaya (and Batam). This <u>is only possible if both</u> entry <u>and</u> exit are at these ports, why caution is required by visitors on which option to choose! Those nationalities which are not eligible for a VOA need to apply in advance for a visa with the embassy or consulate of the Republic of Indonesia nearest to their place of residence in their country. For further information on visa regulations please refer to the official websites of the Directorate General of Immigration: <a href=\"http://www.imigrasi.go.id/index.php/en/\">http://www.imigrasi.go.id/index.php/en/</a>. Since those websites may not always be up-to-date you may check with us on a case-by-case basis for the requirements of your booking. Note that the passport of persons travelling to Indonesia still needs to be valid for at least 6 month on the day of departure</li>\r\n</ul>', 'west-java-tribes-volcano-cave-adventure'),
+(8, 'Trekking East Java', 10, 2, 'Lace up the hiking boots for an active journey through East Java’s spectacular volcanic landscapes. Travel from Yogyakarta to Bali in search of breath taking vistas, submitting majestic peaks and witnessing a live volcanic eruption along the way. After all this excitement, kick back and relax on tropical Pemuteran Bay.', 'merbabu-min.jpg,ranu-kumbolo-min.jpg,menjangan-min.jpg', '<p><strong>Remark on trekking:</strong></p><ul><li>During Mount Semeru trekking, porter will bring trekking &amp; cooking equipment, logistic; porter does not carry the participant personal gear it is advice to carry a lighter bag for all trekking portion.</li></ul><ul><li>Prepare a light backpack that you can carry during your trekking. Personal gear must be provided on your own: good trekking shoes, warm clothing, wind jacket, rain gear, hat/cap, sun’s cream, gaiter, personal medicine, and personal toiletries.</li><li>All camping material are provide by our local guide team (tent, nap for picnic and camping chairs, toilet tent, sleeping bag, mattress, pillow, toilet paper), should you wish to bring your own camping material please inform your local guide upon briefing.</li></ul><ul><li>Please bring warm clothes during Mount Bromo sunrise excursion as the temperature is low and cold</li></ul><p><strong>Important notes:</strong></p><ul><li>During the important <strong>religious festival of Idul Fitri</strong>, which falls in 2020 on 23<sup>rd</sup> &amp; 24<sup>th</sup> May. intense travel across the country, especially in Java, has to be expected with the consequence of long traffic jams. Overland travel is not advised during the two weeks from 16<sup>th</sup> to 31<sup>st </sup>May 2020. Especially the ferry crossing between Java and Bali may be blocked. Service availability during that time may be limited, tour guides may be travelling home, and restaurants may be closed.</li></ul><ul><li>During <strong>Nyepi Day</strong>, an important religious day in Bali , which falls in 2020 on March 25<sup>th</sup> &nbsp;, visitors and the public are not allowed to leave the premises of hotels from 6am to 6am the following day; all public activities will cease, hotels remain operational with limited staff; the airport will not operate any flights.</li></ul><ul><li>We strongly recommend the purchase of <strong>travel insurance</strong> (covering emergency medical evacuation) prior to travel. Since we are not able to advice on any matters regarding vaccinations or other precautionary medical measures, we recommend the consultation of a travel- or tropical-medicine doctor.</li></ul><ul><li>Prices are <strong>valid 30 days from date of offer</strong>. Past this date price and conditions may be readjusted. We reserve the right to adjust prices for exceptional circumstances which are not under our control with a notice period of 30 day prior to travel. Services which are already paid are exempt from this.</li></ul><ul><li>Our prices are in United States Dollars (USD). Several of the services that we quote, are being paid in local currency – the Indonesian Rupiah (IDR). In case of any significant change oft the official exchange rate of more than 5% to our disadvantage, we reserve the right to adjust prices. This would be done with a minimum notice period of 30 days.</li></ul><ul><li>Our prices are based on a petrol price of 7.400 Indonesian Rupiah (IDR) / liter. Should the petrol price increase more than 10%, we reserve the right to adjust our prices with a minimum notice period of 30 days.</li></ul><ul><li>Reservations during <strong>peak seasons</strong> (Christmas, New Year, High Season, and National Holidays) may be subject to supplementary charges, obligatory meals or minimum-stays. In certain cases, these may be announced late by supplier and hotels and may only be communicated upon the receipt of your confirmation of a booking.</li></ul><ul><li>Please note that all the above services &amp; tours have <strong>yet to be booked</strong>, they are proposed for your information only and we will not make any reservations before we receive your confirmation to do so. Availability is always subject to change until booking confirmation form our side.</li></ul><ul><li>If any proposed service(s) is/are <strong>not available at the moment of booking</strong>, we will try to find other possibilities/options or other similar service(s) in order to avoid changes to the program.</li></ul><ul><li>Note that <strong>certain experiences</strong>, such as blessings by a priest, the visit of an astrologer, etc. are linked with cultural and social obligations on the side of the providers that may change with very short notice, and thus are always subject to change. Cancellations from the supplier-side with short notice have occurred, and in such cases we would always try to re-schedule the activity or experience.</li></ul><ul><li><strong>Room/Bedding-Configuration</strong>: Prices per person based on twin sharing relate either to accommodation in a Twin-, a Double- or a so called “Hollywood”-Double Bed configuration. The third bed for accommodation requested in Triple-rooms is often not a full-size single bed, but an extra-bed / roll-away bed / sofa-bed that can vary in size and standard from the regular bedding in the room.</li></ul><ul><li>Rooms at hotels are available only from <strong>check-in time</strong> at 14:00 pm on arrival day till <strong>check-out time</strong> at 12:00 o’clock noon on departure date. A supplement may need to be added if early check-in or late check-out is desired.</li></ul><ul><li><strong>Accommodation and service standards</strong> in remoter islands in Indonesia, and also in Sumatra, Kalimantan, Sulawesi, Flores, Sumba and other islands can be very basic and cannot be compared to those in Java or Bali. In some areas also the transportation means are of more basic standard.</li></ul><ul><li>The <strong>cost of air tickets</strong> is subject to change without prior notice by the airlines. Flight tickets are issues as soon as we receive a booking confirmation. In case of any cancellation of a booking prior the period within which advised cancellation charges apply, we reserve the right to charge cancellation charges for flight tickets according to the airline cancellation policy.</li></ul><ul><li><strong>Train tickets</strong> are issued as soon as we receive a booking and passport details of the passengers, and the ticketing is opened on the side of the railway company (usually 3 months prior to travel). For any change in travel dates or any cancellation of the tour – also prior to the period within which advised – cancellation charges do apply. We reserve the right to charge for the cancellation of the train tickets according to the railway company cancellation policy. Usually this is for any change of date and for any cancellation the full train ticket price.</li></ul><ul><li>Bringing an additional day-bag: For guests <strong>travelling by train</strong> it is strongly advised to bring a day-bag. Luggage is usually not transported on the train and needs to be collected on the evening prior to departure and arrives late after arrival of the guests. The same applies for <strong>all travelers to Tangkahan and groups (GIT) Samosir in Sumatra</strong>. Due to limited space in the transportation, the main luggage can be stored while guest just take along a day-bag with content for 2 days.</li></ul><ul><li><strong>Road conditions</strong> in Indonesia are not always very good and this can cause slow driving times. As a general rule we calculate 30 km = 1 hour driving. This can be even less when traveling in very remote areas and jungles with 4WD jeeps. Also some islands are very populated which during public holidays and long weekends can cause traffic problems that can influence your journey time considerably.</li></ul><ul><li>Note that <strong>visits to volcanoes</strong> are always subject to change and may be cancelled due to weather conditions or volcanic activity during time of travel; volcano trekking is not possible during rainy months from November to March, except for Bromo, Ijen and Batur volcanoes, where clearance only depends on the daily weather situation.</li></ul><ul><li>We do not encourage activities that do actively involve <strong>wildlife,</strong> such as dolphin tours, etc. For activities where guests come in touch with wildlife, very high standards apply and are carefully monitored in our side. Note that upon wildlife observations, including bird watching, and also Orang Utan trekking trips in North Sumatra or Kalimantan there is never a guarantee to see certain bird or primates. In the months between July and September the probability to see Orang Utans in the wild or at feeding stations, may be slightly lower than during other months of the year.</li></ul><ul><li>During the rainy season, especially during January and February <strong>boat transfers</strong> between Bali and Lombok or Gili Islands may be delayed or cancelled due to wave conditions in the Lombok Strait. We do strongly recommend using flights during that time! Occasionally cancellations also occur during the dry season. At any time it is strongly recommended to add one interim-night between a speedboat transfer and onward travel. Any flights should not be scheduled on the same day after a speedboat transfer.</li></ul><ul><li>Due to visibility, currents, higher waves and fast changing weather conditions, we refrain from booking <strong>dive excursions</strong> in Bali during the rainy season months from December to mid-March. All dive excursions take place at own risk and we reserve the right to let clients sign a waiver.</li></ul><ul><li>Any travel itinerary is generally dependent on <strong>weather conditions</strong>, and its feasibility may be constrained due to exceptional environmental or social events or circumstances</li></ul><ul><li>Among others, the following <strong>Indonesian airlines</strong> are currently banned by the European Commission from operating in European airspace for safety reasons: Citilink Indonesia, Lion (Mentari) Air, Transnusa Aviation Mandiri, Trigana Air Service, Air Asia Indonesia. Any booking of flights with so called “blacklisted” airlines is done only on request of the clients.</li></ul><p><strong>Visa &amp; Passport</strong>: Visitors with certain nationalities are eligible for a 30-day Visa-On-Arrival (VOA) or a Visitor-Pass at certain international entry points in Indonesia. Certain nationalities are eligible for a non-extendable 30-day visa-free stay, if entering <u>and</u> exiting at certain checkpoints, among them Jakarta, Medan, Denpasar, Surabaya (and Batam). This <u>is only possible if both</u> entry <u>and</u> exit are at these ports, why caution is required by visitors on which option to choose! Those nationalities which are not eligible for a VOA need to apply in advance for a visa with the embassy or consulate of the Republic of Indonesia nearest to their place of residence in their country. For further information on visa regulations please refer to the official websites of the Directorate General of Immigration: <a href=\"http://www.imigrasi.go.id/index.php/en/\">http://www.imigrasi.go.id/index.php/en/</a>. Since those websites may not always be up-to-date you may check with us on a case-by-case basis for the requirements of your booking. Note that the passport of persons travelling to Indonesia still needs to be valid for at least 6 month on the day of departure.</p>', 'trekking-east-java-volcano-summit'),
+(9, 'Classic Java Bali', 11, 2, 'Explore the ancient temples of Java and Bali on this road trip and learn about the confluence of Hinduism and Buddhism over the years. See many UNESCO World Heritage sites like the Borobudur Temples and the Jatiluwih rice fields. Take a trek up active volcanoes Mount Bromo and Ijen and be rewarded with breathtaking views.', 'bromo-min.jpg,ijen-min.jpg,ubud.jpg', '<ul><li>Our rates are nett and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In the case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), we reserve the right to correct our quotes to align our rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10% we would readjust transfer rates with a 30 days prior notice</li><li>All timings are approximate. As the world’s most populated island, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2019 is 16-May-20 until 31-May-20</li><li>During Nyepi Day, an important religious day in Bali, which falls on 25-Mar-20 and 14-Mar-21, visitors are not allowed to leave the premises of hotels from 06:00 until 06:00 on the following day (24-hour). The airport will not operate any flights and all public activities will cease but hotels will remain operate with limited staff.</li><li>All language guides other than English subject to availability during high season July-September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request</li></ul>', 'classic-java-bali'),
+(10, 'Java Bali Overland In Style', 12, 2, 'Take this 14-day tour to Bali’s well-known beaches, tropical forests and temples. Trek through a mountain village passing by fruits, vegetable and spice produce. Snorkel at a beach club in Menjangan Island, ride a horse, go bird watching or hike  the terraced rice fields on the way to Selogriyo Temple. Enjoy a scenic train ride from Yogyakarta to Malang and cruise past colonial buildings via a local rickshaw. It’s a trip of a lifetime to Bali!', 'menjangan.jpg,borobudur2-min.jpg,ubud.jpg', '<ul><li>Rates are nets and quoted in American dollars (USD), however some services (like transportation, guide fees, entrance fees, some activities,&nbsp; meals, air tickets and train tickets and sometimes accommodations) are based on local prices in Indonesian Rupiah in (IDR). In case of a major change in the exchange rate (5% or more) between the Indonesian Rupiah and the American dollar (USD), EXO reserves the right to correct the quotes to align with the rates and revise the value of the American dollar (USD).</li><li>All rates are based on the current gasoline price. Should the gasoline price increase by more than 10%, EXO would readjust transfer rates with a 30 days prior notice.</li><li>Road conditions in Indonesia are not always very good and this can cause slow driving times. As a general rule, EXO calculates 30 km = 1 hour driving. This can be even less when traveling in very remote areas and jungles with 4x4 jeeps. Also, some islands are very populated which during public holidays and long weekends can cause traffic problems, influencing the journey can time considerably.</li><li>All language guides other than English are subject to availability during high season from July to September<strong>.</strong></li><li>Compulsory gala dinners and special conditions may be applied during peak season. Rates and details will be informed in advance.</li><li>Child rate is available on request.</li><li>All timings are approximate. As the world’s most populated island, Java, travel times can vary greatly during <em>Eid al Fitr</em> holiday break and other National Public Holidays. <em>Eid al Fitr</em> period in 2019 is 16-May-20 until 31-May-20</li><li>During Nyepi Day, an important religious day in Bali, which falls on 25-Mar-20, visitors are not allowed to leave the premises of hotels from 06:00 until 06:00 on the following day (24-hour). The airport will not operate any flights and all public activities will cease but hotels will resume operation with limited staff.</li><li>Note that certain experiences, such as blessings by a priest, the visit of an astrologer, etc. are linked with cultural and social obligations on the side of the providers that may change with very short notice, and thus are always subject to change. Cancellations from the supplier-side with short notice have occurred, and in such cases, EXO would always try to re-schedule the activity or experience.</li></ul>', 'java-bali-overland-in-style');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `package_destinations`
+-- Table structure for table `package_destinations`
 --
 
 CREATE TABLE `package_destinations` (
@@ -309,7 +329,7 @@ CREATE TABLE `package_destinations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `package_destinations`
+-- Dumping data for table `package_destinations`
 --
 
 INSERT INTO `package_destinations` (`id_package_destination`, `id_package`, `id_destination`) VALUES
@@ -375,7 +395,7 @@ INSERT INTO `package_destinations` (`id_package_destination`, `id_package`, `id_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `package_info`
+-- Table structure for table `package_info`
 --
 
 CREATE TABLE `package_info` (
@@ -385,7 +405,7 @@ CREATE TABLE `package_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `package_info`
+-- Dumping data for table `package_info`
 --
 
 INSERT INTO `package_info` (`id_package_info`, `id_package`, `id_info`) VALUES
@@ -540,7 +560,7 @@ INSERT INTO `package_info` (`id_package_info`, `id_package`, `id_info`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `package_region`
+-- Table structure for table `package_region`
 --
 
 CREATE TABLE `package_region` (
@@ -550,28 +570,35 @@ CREATE TABLE `package_region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `package_region`
+-- Dumping data for table `package_region`
 --
 
 INSERT INTO `package_region` (`id_package_region`, `id_package`, `id_region`) VALUES
 (1, 1, 1),
-(2, 2, 1),
-(3, 3, 1),
-(4, 4, 1),
-(5, 5, 1),
-(6, 5, 2),
-(7, 6, 1),
-(8, 7, 1),
-(9, 8, 1),
-(10, 9, 1),
-(11, 9, 2),
-(12, 10, 1),
-(13, 10, 2);
+(2, 1, 2),
+(3, 2, 5),
+(4, 3, 5),
+(5, 4, 2),
+(6, 4, 5),
+(7, 5, 5),
+(8, 5, 4),
+(9, 6, 2),
+(10, 6, 5),
+(11, 6, 1),
+(12, 7, 3),
+(13, 8, 2),
+(14, 8, 1),
+(15, 9, 5),
+(16, 9, 1),
+(17, 9, 4),
+(18, 10, 5),
+(19, 10, 1),
+(20, 10, 4);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `package_styles`
+-- Table structure for table `package_styles`
 --
 
 CREATE TABLE `package_styles` (
@@ -581,7 +608,7 @@ CREATE TABLE `package_styles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `package_styles`
+-- Dumping data for table `package_styles`
 --
 
 INSERT INTO `package_styles` (`id_package_style`, `id_package`, `id_style`) VALUES
@@ -605,7 +632,7 @@ INSERT INTO `package_styles` (`id_package_style`, `id_package`, `id_style`) VALU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pdf`
+-- Table structure for table `pdf`
 --
 
 CREATE TABLE `pdf` (
@@ -615,7 +642,7 @@ CREATE TABLE `pdf` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pdf`
+-- Dumping data for table `pdf`
 --
 
 INSERT INTO `pdf` (`id_pdf`, `package`, `url`) VALUES
@@ -624,7 +651,7 @@ INSERT INTO `pdf` (`id_pdf`, `package`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `region`
+-- Table structure for table `region`
 --
 
 CREATE TABLE `region` (
@@ -638,27 +665,20 @@ CREATE TABLE `region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `region`
+-- Dumping data for table `region`
 --
 
 INSERT INTO `region` (`id_region`, `region_name`, `banner`, `banner_position`, `overview`, `map`, `url`) VALUES
-(1, 'Java', '6.jpg', 'center', '', '', 'java'),
-(2, 'Bali', 'bali.jpg', 'center', '', '', 'bali'),
-(3, 'Sumba', '3.jpg', 'bottom', '', '', 'sumba'),
-(4, 'Raja Ampat', '4.jpg', 'center', '', '', 'raja-ampat-island'),
-(5, 'Kepulauan Riau', '1.jpg', 'center', '', '', 'kepulauan-riau'),
-(6, 'West Nusa Tenggara', '2.jpg', 'center', '', '', 'west-nusa-tenggara'),
-(7, 'Flores and Komodo Island', '7.jpg', 'center', '', '', 'flores-and-komodo-island'),
-(8, 'Kalimantan', '8.jpg', 'center', '', '', 'kalimantan'),
-(9, 'Lombok', '9.jpg', 'bottom', '', '', 'lombok'),
-(10, 'Papua', '10.jpg', 'bottom', '', '', 'papua'),
-(11, 'Sulawesi', '11.jpg', 'top', '', '', 'sulawesi'),
-(12, 'Sumatra', '12.jpg', 'bottom', '', '', 'sumatra');
+(1, 'East Java', '6.jpg', 'center', '', '', 'java'),
+(2, 'Central Java', '2.jpg', 'center', '', '', 'central-java'),
+(3, 'West Java', '3.jpg', 'center', '', '', 'west-java'),
+(4, 'Bali', 'bali.jpg', 'center', '', '', 'bali'),
+(5, 'Yogyakarta', '5.jpg', 'center', '', '', 'yogyakarta');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tour_styles`
+-- Table structure for table `tour_styles`
 --
 
 CREATE TABLE `tour_styles` (
@@ -668,7 +688,7 @@ CREATE TABLE `tour_styles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tour_styles`
+-- Dumping data for table `tour_styles`
 --
 
 INSERT INTO `tour_styles` (`id_style`, `style_name`, `icon`) VALUES
@@ -682,7 +702,7 @@ INSERT INTO `tour_styles` (`id_style`, `style_name`, `icon`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `trip_highlights`
+-- Table structure for table `trip_highlights`
 --
 
 CREATE TABLE `trip_highlights` (
@@ -693,7 +713,7 @@ CREATE TABLE `trip_highlights` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `trip_highlights`
+-- Dumping data for table `trip_highlights`
 --
 
 INSERT INTO `trip_highlights` (`id_highlight`, `id_package`, `caption`, `detail`) VALUES
@@ -731,7 +751,7 @@ INSERT INTO `trip_highlights` (`id_highlight`, `id_package`, `caption`, `detail`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -746,11 +766,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `email`, `password`, `fullname`, `levelUser`, `createdAt`, `lastLogin`, `statusAktif`) VALUES
-(1, 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '1', '2019-05-31', '2020-02-14', '1'),
+(1, 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '1', '2019-05-31', '2020-02-15', '1'),
 (2, 'eugenecw.ng@gmail.com', 'a151b60f3197544d0bce5ad7cbbd0432', 'Eugene', '2', '2019-07-30', '2019-07-30', '1');
 
 --
@@ -758,213 +778,225 @@ INSERT INTO `users` (`user_id`, `email`, `password`, `fullname`, `levelUser`, `c
 --
 
 --
--- Indeks untuk tabel `category_destination`
+-- Indexes for table `category_destination`
 --
 ALTER TABLE `category_destination`
   ADD PRIMARY KEY (`id_category`);
 
 --
--- Indeks untuk tabel `destinations`
+-- Indexes for table `category_package`
+--
+ALTER TABLE `category_package`
+  ADD PRIMARY KEY (`id_category`);
+
+--
+-- Indexes for table `destinations`
 --
 ALTER TABLE `destinations`
   ADD PRIMARY KEY (`id_destination`),
   ADD KEY `id_category` (`id_category`);
 
 --
--- Indeks untuk tabel `durations`
+-- Indexes for table `durations`
 --
 ALTER TABLE `durations`
   ADD PRIMARY KEY (`id_duration`);
 
 --
--- Indeks untuk tabel `info`
+-- Indexes for table `info`
 --
 ALTER TABLE `info`
   ADD PRIMARY KEY (`id_info`);
 
 --
--- Indeks untuk tabel `itinerary`
+-- Indexes for table `itinerary`
 --
 ALTER TABLE `itinerary`
   ADD PRIMARY KEY (`id_itinerary`),
   ADD KEY `id_package` (`id_package`);
 
 --
--- Indeks untuk tabel `packages`
+-- Indexes for table `packages`
 --
 ALTER TABLE `packages`
   ADD PRIMARY KEY (`id_package`);
 
 --
--- Indeks untuk tabel `package_destinations`
+-- Indexes for table `package_destinations`
 --
 ALTER TABLE `package_destinations`
   ADD PRIMARY KEY (`id_package_destination`);
 
 --
--- Indeks untuk tabel `package_info`
+-- Indexes for table `package_info`
 --
 ALTER TABLE `package_info`
   ADD PRIMARY KEY (`id_package_info`),
   ADD KEY `id_info` (`id_info`);
 
 --
--- Indeks untuk tabel `package_region`
+-- Indexes for table `package_region`
 --
 ALTER TABLE `package_region`
   ADD PRIMARY KEY (`id_package_region`),
   ADD KEY `id_region` (`id_region`);
 
 --
--- Indeks untuk tabel `package_styles`
+-- Indexes for table `package_styles`
 --
 ALTER TABLE `package_styles`
   ADD PRIMARY KEY (`id_package_style`),
   ADD KEY `id_style` (`id_style`);
 
 --
--- Indeks untuk tabel `pdf`
+-- Indexes for table `pdf`
 --
 ALTER TABLE `pdf`
   ADD PRIMARY KEY (`id_pdf`);
 
 --
--- Indeks untuk tabel `region`
+-- Indexes for table `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`id_region`);
 
 --
--- Indeks untuk tabel `tour_styles`
+-- Indexes for table `tour_styles`
 --
 ALTER TABLE `tour_styles`
   ADD PRIMARY KEY (`id_style`);
 
 --
--- Indeks untuk tabel `trip_highlights`
+-- Indexes for table `trip_highlights`
 --
 ALTER TABLE `trip_highlights`
   ADD PRIMARY KEY (`id_highlight`),
   ADD KEY `id_package` (`id_package`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `category_destination`
+-- AUTO_INCREMENT for table `category_destination`
 --
 ALTER TABLE `category_destination`
   MODIFY `id_category` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `destinations`
+-- AUTO_INCREMENT for table `category_package`
+--
+ALTER TABLE `category_package`
+  MODIFY `id_category` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
   MODIFY `id_destination` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT untuk tabel `durations`
+-- AUTO_INCREMENT for table `durations`
 --
 ALTER TABLE `durations`
   MODIFY `id_duration` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `info`
+-- AUTO_INCREMENT for table `info`
 --
 ALTER TABLE `info`
   MODIFY `id_info` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `itinerary`
+-- AUTO_INCREMENT for table `itinerary`
 --
 ALTER TABLE `itinerary`
   MODIFY `id_itinerary` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
--- AUTO_INCREMENT untuk tabel `packages`
+-- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
   MODIFY `id_package` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `package_destinations`
+-- AUTO_INCREMENT for table `package_destinations`
 --
 ALTER TABLE `package_destinations`
   MODIFY `id_package_destination` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
--- AUTO_INCREMENT untuk tabel `package_info`
+-- AUTO_INCREMENT for table `package_info`
 --
 ALTER TABLE `package_info`
   MODIFY `id_package_info` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
--- AUTO_INCREMENT untuk tabel `package_region`
+-- AUTO_INCREMENT for table `package_region`
 --
 ALTER TABLE `package_region`
-  MODIFY `id_package_region` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_package_region` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `package_styles`
+-- AUTO_INCREMENT for table `package_styles`
 --
 ALTER TABLE `package_styles`
   MODIFY `id_package_style` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT untuk tabel `pdf`
+-- AUTO_INCREMENT for table `pdf`
 --
 ALTER TABLE `pdf`
   MODIFY `id_pdf` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
--- AUTO_INCREMENT untuk tabel `region`
+-- AUTO_INCREMENT for table `region`
 --
 ALTER TABLE `region`
-  MODIFY `id_region` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_region` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT untuk tabel `tour_styles`
+-- AUTO_INCREMENT for table `tour_styles`
 --
 ALTER TABLE `tour_styles`
   MODIFY `id_style` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `trip_highlights`
+-- AUTO_INCREMENT for table `trip_highlights`
 --
 ALTER TABLE `trip_highlights`
   MODIFY `id_highlight` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `destinations`
+-- Constraints for table `destinations`
 --
 ALTER TABLE `destinations`
   ADD CONSTRAINT `destinations_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category_destination` (`id_category`);
 
 --
--- Ketidakleluasaan untuk tabel `itinerary`
+-- Constraints for table `itinerary`
 --
 ALTER TABLE `itinerary`
   ADD CONSTRAINT `itinerary_ibfk_1` FOREIGN KEY (`id_package`) REFERENCES `packages` (`id_package`);
 
 --
--- Ketidakleluasaan untuk tabel `trip_highlights`
+-- Constraints for table `trip_highlights`
 --
 ALTER TABLE `trip_highlights`
   ADD CONSTRAINT `trip_highlights_ibfk_1` FOREIGN KEY (`id_package`) REFERENCES `packages` (`id_package`);

@@ -57,6 +57,7 @@ $route['region/(:any)'] = 'frontend/region/view/$1';
 $route['destinations/(:any)'] = 'frontend/destinations/detail/$1';
 $route['packages'] = 'frontend/packages';
 $route['packages/(:any)'] = 'frontend/packages/detail/$1';
+$route['about'] = 'frontend/about';
 $route['dashboard'] = 'backend/backend/dashboard';
 $route['pdf'] = 'backend/pdf';
 $route['pdf/(:any)'] = 'backend/pdf/$1';

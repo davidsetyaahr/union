@@ -8,27 +8,31 @@ class Packages extends CI_Controller {
 		$html = array(
 			'metaKey' => "union tour operator, union, java volcano tour operator, jvto, indonesian travel, wonderfull indonesia",
 			'metaDesc' => "We're a group of talented, passionate people located around the world. Not afraid to innovate or try new things, we're committed to making things better for everyone by tackling the difficult problems of travel.",
-			'title' => 'Union Tour Operator - Be a Traveler Not a Tourist'
+			'title' => 'Union Tour Operator - Tour Packages'
 		);
 
-		if(!empty($_GET['id_region'])){
+		if(!empty($_GET['id_region']) && empty($_GET['id_style'])){
 			$id_region = $_GET['id_region'];
-
-			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["durations d", "p.id_duration = d.id_duration","package_region pr","p.id_package = pr.id_package"],["pr.id_region" => $id_region],["p.id_package","desc"]);
-		}elseif(!empty($_GET['id_style'])){
+			$data['selectRegion'] = $this->common->getData("region_name","region","",["id_region" => $id_region],"")[0];
+			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url,cp.category","packages p",["durations d", "p.id_duration = d.id_duration","package_region pr","p.id_package = pr.id_package","category_package cp","p.id_category = cp.id_category"],["pr.id_region" => $id_region],["p.id_package","desc"]);
+		}elseif(!empty($_GET['id_style']) && empty($_GET['id_region'])){
 			$id_style = $_GET['id_style'];
+			$data['selectStyle'] = $this->common->getData("style_name","tour_styles","",["id_style" => $id_style],"")[0];
 
-			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration"],["ps.id_style" => $id_style],["p.id_package","desc"]);
+			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url,cp.category","packages p",["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration","category_package cp","p.id_category = cp.id_category"],["ps.id_style" => $id_style],["p.id_package","desc"]);
 		}elseif(!empty($_GET['id_region']) && !empty($_GET['id_style'])){
 			$id_region = $_GET['id_region'];
 			$id_style = $_GET['id_style'];
+			$data['selectStyle'] = $this->common->getData("style_name","tour_styles","",["id_style" => $id_style],"")[0];
+			$data['selectRegion'] = $this->common->getData("region_name","region","",["id_region" => $id_region],"")[0];
 
-			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration","package_region pr","p.id_package = pr.id_package"],["ps.id_style" => $id_style,"pr.id_region" => $id_region],["p.id_package","desc"]);
+			
+			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url,cp.category","packages p",["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration","package_region pr","p.id_package = pr.id_package","category_package cp","p.id_category = cp.id_category"],["ps.id_style" => $id_style,"pr.id_region" => $id_region],["p.id_package","desc"]);
 		}else{
-			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url","packages p",["durations d", "p.id_duration = d.id_duration"],"",["p.id_package","desc"]);
+			$data['packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url,cp.category","packages p",["durations d", "p.id_duration = d.id_duration","category_package cp","p.id_category = cp.id_category"],"",["p.id_package","desc"]);
 		}
 		$data['styles'] = $this->common->getData("*","tour_styles","","","");
-
+		
 		$data['region'] = $this->common->getData("*","region","","","");
 		
 		$this->load->view('frontend/common/top', $html);
@@ -40,10 +44,9 @@ class Packages extends CI_Controller {
 		$html = array(
 			'metaKey' => "union tour operator, union, java volcano tour operator, jvto, indonesian travel, wonderfull indonesia",
 			'metaDesc' => "We're a group of talented, passionate people located around the world. Not afraid to innovate or try new things, we're committed to making things better for everyone by tackling the difficult problems of travel.",
-			'title' => 'Union Tour Operator - Be a Traveler Not a Tourist'
 		);
 		
-		$data['package'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.overview,p.informations","packages p",["durations d", "p.id_duration = d.id_duration"],["p.url" => $url],"")[0];
+		$data['package'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.overview,p.informations,p.url","packages p",["durations d", "p.id_duration = d.id_duration"],["p.url" => $url],"")[0];
 		
 		$data['styles'] = $this->common->getData("ts.style_name","package_styles ps",["tour_styles ts","ps.id_style = ts.id_style"],["id_package" => $data['package']['id_package']],"");
 
@@ -55,8 +58,9 @@ class Packages extends CI_Controller {
 
 		$data['highlights'] = $this->common->getData("*","trip_highlights","",["id_package" => $data['package']['id_package']],"");
 
-		$data['another_packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url",["packages p",3,0],["durations d", "p.id_duration = d.id_duration"],"",["p.id_package","desc"]);
+		$data['another_packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url,cp.category",["packages p",3,0],["durations d", "p.id_duration = d.id_duration","category_package cp","p.id_category = cp.id_category"],"",["p.id_package","desc"]);
 
+		$html['title'] = "Union Tour Operator - ".$data['package']['package_name'];
 
 		$data['info'] = array(
 			"include" => $this->common->getData("i.text","package_info pi",["info i","pi.id_info = i.id_info"],["pi.id_package" => $data['package']['id_package'],"i.type" => "in"],""),
@@ -70,7 +74,7 @@ class Packages extends CI_Controller {
 	
 	public function bystyle()
 	{
-		$data['package'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url",["packages p",4,0],["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration"],["ps.id_style" => $_POST['id_style']],["p.id_package","desc"]);
+		$data['package'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url,cp.category",["packages p",4,0],["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration","category_package cp","p.id_category = cp.id_category"],["ps.id_style" => $_POST['id_style']],["p.id_package","desc"]);
 		
 		$data['styles'] = $this->common->getData("*","tour_styles","","","");
 		

@@ -17,12 +17,12 @@
         <div class="row justify-content-center my-5">
           <div class="col-md-12">
             <div class="socials">
-              <a href=""
+              <a href="https://www.facebook.com/Union-Tour-Operator-107489900797347/" target="_blank"
                 ><span class="fa fa-facebook-square"></span> Facebook</a
               >
-              <a href=""><span class="fa fa-instagram"></span> Instagram</a>
-              <a href=""><span class="fa fa-envelope"></span> Email</a>
-              <a href=""><span class="fa fa-whatsapp"></span> Whatsapp</a>
+              <a href="https://www.instagram.com/uniontouroperator/" target="_blank"><span class="fa fa-instagram"></span> Instagram</a>
+              <a href="mailto:infocust@uniontouroperator.com?subject=Hello Union Tour Operator"><span class="fa fa-envelope"></span> Email</a>
+              <a target="_blank" href="https://wa.me/6281252735368?text=Hello Union Tour Operator. i want to book some package :)"><span class="fa fa-whatsapp"></span> Whatsapp</a>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
             <img src="<?php echo base_url() ?>assets/images/common/UNION.png" alt="" width="40%">
             <div class="link-footer mt-3">
                 <b>Jl. Khairil Anwar No. 102 A kelurahan Badean Bondowoso 
-68214 <a href="https://goo.gl/maps/oeBJq1398RhBGzF89" target="_blank" class="link-footer">View on map</a> </b>
+68214 <a href="https://goo.gl/maps/oeBJq1398RhBGzF89" target="_blank" class="link-footer color-blue">View on map</a> </b>
             </div>
           </div>
           <div class="col-md-3">
@@ -55,29 +55,29 @@
               <div class="col-md-6">
                 <ul class="link-footer">
                   <li>
-                    <a href="" class="color-blue">DESTINATIONS</a>
+                    <a href="<?php echo base_url() ?>" class="color-blue">HOME</a>
                   </li>
                   <li>
-                    <a href="" class="color-blue">ADVENTURE</a>
+                    <a href="<?php echo base_url()."packages" ?>" class="color-blue">ALL PACKAGES</a>
                   </li>
                   <li>
-                    <a href="" class="color-blue">HIKING TOUR</a>
+                    <a href="<?php echo base_url()."packages?id_style=1" ?>" class="color-blue">ACTIVE TRAVEL</a>
                   </li>
                   <li>
-                    <a href="" class="color-blue"
-                      >BEACH TOUR              </li>
+                    <a href="<?php echo base_url()."packages?id_style=2" ?>" class="color-blue"
+                      >CLASSIC JOURNEY              </li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <ul class="link-footer">
                   <li>
-                    <a href="" class="color-blue">ABOUT</a>
+                    <a href="<?php echo base_url()."packages?id_style=3" ?>" class="color-blue">TREKKING</a>
                   </li>
                   <li>
-                    <a href="" class="color-blue">BLOG</a>
+                    <a href="<?php echo base_url()."about" ?>" class="color-blue">ABOUT</a>
                   </li>
                   <li>
-                    <a href="" class="color-blue">SIGN IN</a>
+                    <a href="#" data-toggle="modal" data-target="#myModal" class="color-blue">ENQUIRE</a>
                   </li>
                 </ul>
               </div>
