@@ -58,6 +58,12 @@ $route['destinations/(:any)'] = 'frontend/destinations/detail/$1';
 $route['packages'] = 'frontend/packages';
 $route['packages/(:any)'] = 'frontend/packages/detail/$1';
 $route['about'] = 'frontend/about';
+$route['dashboard'] = 'backend/backend/dashboard';
+$route['pdf'] = 'backend/pdf';
+$route['pdf/(:any)'] = 'backend/pdf/$1';
+$route['pdf/delete/(:any)'] = 'backend/pdf/delete/$1';
+$route['success'] = 'welcome/success';
+$route['logout'] = 'backend/backend/logout';
 /*--------*/
 
 /*backend*/
