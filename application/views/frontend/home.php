@@ -21,7 +21,7 @@
                 <div class="row">
                   <div class="col-md-6 cc">
                       <select name="id_region" id="" class="custom-select">
-                        <option value="" data-icon="fa fa-globe" readonly>Destinations</option>
+                        <option value="" data-icon="fa fa-map-marker" readonly>Destinations</option>
                         <?php 
                           foreach ($region as $key => $value) {
                         ?>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-md-4 cc">
                       <select name="id_style" id="" class="custom-select">
-                        <option value="" data-icon="fa fa-briefcase" readonly>Tour Style</option>
+                        <option value="" data-icon="fa fa-globe" readonly>Tour Style</option>
                         <?php 
                           foreach ($styles as $key => $value) {
                         ?>

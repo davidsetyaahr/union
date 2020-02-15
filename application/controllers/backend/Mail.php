@@ -39,7 +39,7 @@ class Mail extends CI_Controller {
 
 
             $from = $config['smtp_user'];
-            $to = "awakowow99@gmail.com";
+            $to = "davidsetya24@gmail.com";
             $subject = "Booking Info";
 
             $package = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url",["packages p"],["durations d", "p.id_duration = d.id_duration"],["p.id_package" => $_POST['packages']],"")[0];
@@ -53,7 +53,7 @@ class Mail extends CI_Controller {
                 <div style='background:#f9f9ff'>
                     <br>
                     <center>
-                        <img src='".base_url()."assets/images/common/UNION.png' width='20%'>
+                        <img src='".base_url()."assets/images/common/logoq.png'>
                         <h1>Booking Information</h1>
                     </center>
                     <br>
@@ -61,22 +61,13 @@ class Mail extends CI_Controller {
                 <br>
                 <table width='100%'>
                     <tr width='100%'>
-                        <td width='50%'>
+                        <td width='100%'>
                             <span>
                                 <b>From : </b>".$_POST['email']."
                             </span>
                             <br>
                             <span>
-                                <b>Package Name : </b><a href='".base_url()."packages/detail/".$package['url']."'>".$package['package_name']."</a>
-                            </span>
-                        </td>
-                        <td width='50%'>
-                            <span>
                                 <b>Booking date : </b>".date('d-m-Y H:i:s')."
-                            </span>
-                            <br>
-                            <span>
-                                <b>Category : </b>".$package['cat_name']."
                             </span>
                         </td>
                     </tr>
@@ -114,7 +105,7 @@ class Mail extends CI_Controller {
                                 <tr>
                                     <td><b>Package Name</b></td>
                                     <td>:</td>
-                                    <td>".$package['title']."</td>
+                                    <td>".$package['package_name']."</td>
                                 </tr>
                                 <tr>
                                     <td><b>Travel Date</b></td>
@@ -185,7 +176,7 @@ class Mail extends CI_Controller {
             </html>
 
             ";
-            $this->email->set_newline("\r\n");
+             $this->email->set_newline("\r\n");
             $this->email->from($from,'Union Tour Operator');
             $this->email->to($to);
             $this->email->subject($subject);
@@ -196,7 +187,7 @@ class Mail extends CI_Controller {
             } else {
                 show_error($this->email->print_debugger());
             }            
-        }else{
+            }else{
 
         }
 

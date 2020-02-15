@@ -68,4 +68,7 @@
 	.navbar-collapse ul li a {
 		font-size: 14px !important;
 	}
+	.to-left {
+		text-align: left !important;
+	}
 }
