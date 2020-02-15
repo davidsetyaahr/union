@@ -19,6 +19,7 @@
       rel="stylesheet"
       href="<?php echo base_url() ?>assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
     />
+    <link rel="icon" type="image/png" href="<?php echo base_url()."assets/images/common/UNION.png" ?>">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/adventure/font/flaticon.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.theme.default.min.css" />
@@ -28,13 +29,13 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom-responsive.css" />
     <title><?php echo $title; ?></title>
   </head>
-  <body>
+  <body <?php echo empty($this->uri->segment(2)) ? "class='home'" : "" ?>>
   <div class="loading fadeIn animated">
       <img src="<?php echo base_url()."assets/images/common/UNION.png" ?>" alt="">
   </div>
     <nav class="navbar navbar-expand-lg py-3 main-nav fixed-top">
       <div class="container custom">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<?php echo base_url() ?>">
           <img id="logo1" src="<?php echo base_url() ?>assets/images/common/logo-white.png" alt="">
           <img id="logo2" class="hidden" src="<?php echo base_url() ?>assets/images/common/logo.png" alt="">
         </a>
@@ -58,7 +59,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="<?php echo base_url()."about" ?>">About</a>
             </li>
       <!-- Megamenu-->
 <!--       <li class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">destinations</a>
@@ -270,9 +271,9 @@
                   
               ?>
             </select>
-            <br>
-            <br>
-            <a href="" id="viewPackage" target="_blank">View package</a>
+            <div class="mt-3 hideshow hide">
+              <a href="" id="viewPackage" target="_blank">View package</a>
+            </div>
           </div>
           <div class="col-lg-3">
             <label for="">Tshirt S</label>

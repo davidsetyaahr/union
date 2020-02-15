@@ -1,4 +1,4 @@
-<div class="half-banner" style="background : url('<?php echo base_url()."assets/images/banner/banner.jpg" ?>');background-position:bottom !important">
+<div class="half-banner list-package" style="background : url('<?php echo base_url()."assets/images/banner/package.jpg" ?>');background-position:center">
 <div class="layer"></div>
 <div class="container text-banner">
     <div class="row justify-content-center">
@@ -14,8 +14,12 @@
                         <option value="" data-icon="fa fa-globe" readonly>Destinations</option>
                         <?php 
                           foreach ($region as $key => $value) {
+                            $selected = "";
+                            if(isset($_GET['id_region'])){
+                              $selected = $_GET['id_region']==$value['id_region'] ?  "selected" : "";
+                            }
                         ?>
-                        <option value="<?php echo $value['id_region'] ?>"><?php echo $value['region_name'] ?></option>
+                        <option value="<?php echo $value['id_region'] ?>" <?php echo $selected ?>><?php echo $value['region_name'] ?></option>
                           <?php } ?>
                       </select>
                     </div>
@@ -24,8 +28,12 @@
                         <option value="" data-icon="fa fa-briefcase" readonly>Tour Style</option>
                         <?php 
                           foreach ($styles as $key => $value) {
+                            $selected = "";
+                            if(isset($_GET['id_style'])){
+                              $selected = $_GET['id_style']==$value['id_style'] ?  "selected" : "";
+                            }
                         ?>
-                        <option value="<?php echo $value['id_style'] ?>"><?php echo $value['style_name'] ?></option>
+                        <option value="<?php echo $value['id_style'] ?>" <?php echo $selected ?>><?php echo $value['style_name'] ?></option>
                           <?php } ?>
                       </select>
                     </div>
@@ -62,7 +70,7 @@
 </div>
 </div>
 <div class="container custom my-5">
-    <div class="row my-5 packages h-270">
+    <div class="row my-5 packages h-220">
     <?php 
               $loop = array(
                 "package" => $packages,

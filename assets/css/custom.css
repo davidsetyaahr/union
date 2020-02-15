@@ -83,9 +83,27 @@ html {
 		opacity: 0;
 	}
 }
+
+.select-style {
+	display: none;
+	width: 100%;
+	padding-left: 0px;
+}
+body.home .select2-search--dropdown {
+	display: none;
+}
+.hideshow {
+	display: none;
+}
+.hideshow.show {
+	display: block;
+}
 .tour-finder {
 	background: rgb(255, 255, 255, 0.5);
 	border-radius: 5px;
+}
+.smoothborder .select2-container--default .select2-selection--single {
+	border: 1px solid #ddd;
 }
 .select2-container .select2-selection--single {
 	height: 48px;
@@ -382,11 +400,14 @@ html {
 .parallax {
 	background-image: url("../images/banner/banner.jpg");
 
-	min-height: 70%;
+	min-height: 550px;
 
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
 	position: relative;
 }
@@ -508,7 +529,6 @@ a:link {
 }
 .package .info-bottom .region {
 	color: #666666;
-	width: 70%;
 	font-weight: bold;
 	height: auto !important;
 	margin-top: 5px;
@@ -630,6 +650,9 @@ a:link {
 .color-blue {
 	color: #124680 !important;
 }
+.solid-color {
+	color: #111111;
+}
 label {
 	color: #111111;
 	font-weight: bold;
@@ -737,15 +760,23 @@ label {
 .full-banner .layer,
 .half-banner .layer {
 	background-position: center !important;
+	-moz-background-position: center !important;
+	-webkit-background-position: center !important;
+	-o-background-position: center !important;
 	background: rgba(0, 0, 0, 0.4);
 }
 .full-banner,
 .half-banner {
-	width: 100%;
-	background-attachment: fixed !important;
+	width: 100% !important;
+	background-attachment: scroll !important;
+	-webkit-background-attachment: scroll !important;
+	-moz-background-attachment: scroll !important;
+	-o-background-attachment: scroll !important;
 	background-size: cover !important;
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
 	background-repeat: no-repeat !important;
-	position: relative;
+	position: relative !important;
 }
 .text-banner {
 	z-index: 3;

@@ -2,7 +2,7 @@
   $images = explode(",", $package['images']);
 
 ?>
-<div class="full-banner detail" style="background : url('<?php echo base_url()."assets/images/packages/".$images[0] ?>');background-position:bottom !important">
+<div class="full-banner detail" style="background : url('<?php echo base_url()."assets/images/packages/".$images[0] ?>');background-position:center">
     <div class="layer"></div>
     <div class="container text-banner">
         <div class="row justify-content-center">

@@ -13,7 +13,7 @@ class Home extends CI_Controller {
 
 		$data['region'] = $this->common->getData("*",["region",4,0],"","","");
 
-		$data['activeStyle'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url",["packages p",4,0],["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration"],["ps.id_style" => "1"],["p.id_package","desc"]);
+		$data['activeStyle'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url,cp.category",["packages p",4,0],["package_styles ps","p.id_package = ps.id_package","durations d", "p.id_duration = d.id_duration","category_package cp","p.id_category = cp.id_category"],["ps.id_style" => "1"],["p.id_package","desc"]);
 
 		$data['styles'] = $this->common->getData("*","tour_styles","","","");
 
