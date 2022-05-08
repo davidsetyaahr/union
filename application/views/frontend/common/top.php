@@ -31,7 +31,7 @@
   </head>
   <body <?php echo empty($this->uri->segment(2)) ? "class='home'" : "" ?>>
   <div class="loading fadeIn animated">
-      <img src="<?php echo base_url()."assets/images/common/UNION.png" ?>" alt="">
+      <img src="<?php echo base_url()."assets/images/common/jvv.png" ?>" alt="">
   </div>
     <nav class="navbar navbar-expand-lg py-3 main-nav fixed-top">
       <div class="container custom">
