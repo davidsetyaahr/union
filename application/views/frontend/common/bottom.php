@@ -22,7 +22,7 @@
               >
               <a href="https://www.instagram.com/uniontouroperator/" target="_blank"><span class="fa fa-instagram"></span> Instagram</a>
               <a href="mailto:infocust@uniontouroperator.com?subject=Hello Java Volcano Tour Operator"><span class="fa fa-envelope"></span> Email</a>
-              <a target="_blank" href="https://wa.me/6281252735368?text=Hello Java Volcano Tour Operator. i want to book some package :)"><span class="fa fa-whatsapp"></span> Whatsapp</a>
+              <a target="_blank" href="https://wa.me/6281358953453?text=Hello Java Volcano Tour Operator. i want to book some package :)"><span class="fa fa-whatsapp"></span> Whatsapp</a>
             </div>
           </div>
         </div>
