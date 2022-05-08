@@ -19,7 +19,7 @@
       rel="stylesheet"
       href="<?php echo base_url() ?>assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
     />
-    <link rel="icon" type="image/png" href="<?php echo base_url()."assets/images/common/UNION.png" ?>">
+    <link rel="icon" type="image/png" href="<?php echo base_url()."assets/images/common/jvv.png" ?>">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/adventure/font/flaticon.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.theme.default.min.css" />
