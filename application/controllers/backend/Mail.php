@@ -177,7 +177,7 @@ class Mail extends CI_Controller {
 
             ";
              $this->email->set_newline("\r\n");
-            $this->email->from($from,'Union Tour Operator');
+            $this->email->from($from,'Java Volcano Tour Operator');
             $this->email->to($to);
             $this->email->subject($subject);
             $this->email->message($message);

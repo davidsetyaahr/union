@@ -6,9 +6,9 @@ class Packages extends CI_Controller {
 	public function index()
 	{
 		$html = array(
-			'metaKey' => "union tour operator, union, java volcano tour operator, jvto, indonesian travel, wonderfull indonesia",
+			'metaKey' => "Java Volcano Tour Operator, union, java volcano tour operator, jvto, indonesian travel, wonderfull indonesia",
 			'metaDesc' => "We're a group of talented, passionate people located around the world. Not afraid to innovate or try new things, we're committed to making things better for everyone by tackling the difficult problems of travel.",
-			'title' => 'Union Tour Operator - Tour Packages'
+			'title' => 'Java Volcano Tour Operator - Tour Packages'
 		);
 
 		if(!empty($_GET['id_region']) && empty($_GET['id_style'])){
@@ -42,7 +42,7 @@ class Packages extends CI_Controller {
 	public function detail($url="")
 	{
 		$html = array(
-			'metaKey' => "union tour operator, union, java volcano tour operator, jvto, indonesian travel, wonderfull indonesia",
+			'metaKey' => "Java Volcano Tour Operator, union, java volcano tour operator, jvto, indonesian travel, wonderfull indonesia",
 			'metaDesc' => "We're a group of talented, passionate people located around the world. Not afraid to innovate or try new things, we're committed to making things better for everyone by tackling the difficult problems of travel.",
 		);
 		
@@ -60,7 +60,7 @@ class Packages extends CI_Controller {
 
 		$data['another_packages'] = $this->common->getData("p.id_package,p.package_name,d.day,d.night,p.images,p.url,cp.category",["packages p",3,0],["durations d", "p.id_duration = d.id_duration","category_package cp","p.id_category = cp.id_category"],"",["p.id_package","desc"]);
 
-		$html['title'] = "Union Tour Operator - ".$data['package']['package_name'];
+		$html['title'] = "Java Volcano Tour Operator - ".$data['package']['package_name'];
 
 		$data['info'] = array(
 			"include" => $this->common->getData("i.text","package_info pi",["info i","pi.id_info = i.id_info"],["pi.id_package" => $data['package']['id_package'],"i.type" => "in"],""),

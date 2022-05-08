@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="title-big text-center">
-              UNION TOUR OPERATOR
+              Java Volcano Tour Operator
             </div>
             <p class="text-center">Be a Traveler Not a Tourist!</p>
             <div class="row justify-content-center">

@@ -235,7 +235,7 @@
             service.
             <br>
             <a href="" class="btn btn-warning btn-bold mt-4" id="setEnquire" data-id="<?php echo $package['id_package'] ?>" data-toggle="modal" data-target="#myModal"><span class="fa fa-send"></span> Enquire Now</a>
-            <a href="https://wa.me/6281252735368?text=Hello Union Tour Operator. i want to book this package :) <?php echo base_url()."packages/".$package['url'] ?>" class="btn btn-success mt-4 btn-bold"><span class="fa fa-whatsapp"></span> Whatsapp now</a>
+            <a href="https://wa.me/6281252735368?text=Hello Java Volcano Tour Operator. i want to book this package :) <?php echo base_url()."packages/".$package['url'] ?>" class="btn btn-success mt-4 btn-bold"><span class="fa fa-whatsapp"></span> Whatsapp now</a>
 
             </div>
         </div>

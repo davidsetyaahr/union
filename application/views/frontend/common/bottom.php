@@ -21,8 +21,8 @@
                 ><span class="fa fa-facebook-square"></span> Facebook</a
               >
               <a href="https://www.instagram.com/uniontouroperator/" target="_blank"><span class="fa fa-instagram"></span> Instagram</a>
-              <a href="mailto:infocust@uniontouroperator.com?subject=Hello Union Tour Operator"><span class="fa fa-envelope"></span> Email</a>
-              <a target="_blank" href="https://wa.me/6281252735368?text=Hello Union Tour Operator. i want to book some package :)"><span class="fa fa-whatsapp"></span> Whatsapp</a>
+              <a href="mailto:infocust@uniontouroperator.com?subject=Hello Java Volcano Tour Operator"><span class="fa fa-envelope"></span> Email</a>
+              <a target="_blank" href="https://wa.me/6281252735368?text=Hello Java Volcano Tour Operator. i want to book some package :)"><span class="fa fa-whatsapp"></span> Whatsapp</a>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
       <div class="container custom">
         <div class="row my-5">
           <div class="col-md-3">
-            <img src="<?php echo base_url() ?>assets/images/common/UNION.png" alt="" width="40%">
+            <img src="<?php echo base_url() ?>assets/images/common/jvv.png" alt="" width="40%">
             <div class="link-footer mt-3">
                 <b>Jl. Khairil Anwar No. 102 A kelurahan Badean Bondowoso 
 68214 <a href="https://goo.gl/maps/oeBJq1398RhBGzF89" target="_blank" class="link-footer color-blue">View on map</a> </b>
@@ -104,7 +104,7 @@
       <div class="row my-4">
         <div class="col-md-12 text-center">
           <div class="copyright">
-            <span class="color-blue">Copyright 2020</span> - Union Tour Operator
+            <span class="color-blue">Copyright 2020</span> - Java Volcano Tour Operator
           </div>
         </div>
       </div>

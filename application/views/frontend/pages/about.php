@@ -3,7 +3,7 @@
     <div class="container text-banner">
         <div class="row justify-content-center">
             <div class="col-md-7">
-                <h1 class="text-center font-weight-bold">We Are Union Tour Operator</h1>
+                <h1 class="text-center font-weight-bold">We Are Java Volcano Tour Operator</h1>
                 <h5 class="text-center">Be a Traveler Not a Tourist!</h5>
             </div>
         </div>
@@ -19,7 +19,7 @@
       <div class="row justify-content-center">
         <div class="col-md-10 text-center">
           <div class="content">
-          Union Tour Operator is a fully licensed and registered tourism company and headed by an experienced, highly capable management. There are dedicated teams in place within each destination for Adventure, MICE and Luxury Travel, each supported by multilingual reservations teams and specialised product teams.  
+          Java Volcano Tour Operator is a fully licensed and registered tourism company and headed by an experienced, highly capable management. There are dedicated teams in place within each destination for Adventure, MICE and Luxury Travel, each supported by multilingual reservations teams and specialised product teams.  
  
  We set out to uncover amazing outdoor Experience the best of Indonesia from mist wreathed jungle to modern metropolis, from volcanic landscapes to pristine coral reefs. Whether you’re after a touch of culture, a surge of adventure, or some laid-back lounging, the vast Indonesian archipelago offers an abundance of options for unique experiences.  
   
